@@ -2,29 +2,61 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.project.porkcracklings</groupId>
-    <artifactId>Porkcracklings</artifactId>
+    <groupId>com.jubilantbassoon</groupId>
+    <artifactId>project</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <log4j2.version>2.7</log4j2.version>
-        <mybatis.version>3.4.1</mybatis.version>
-        <mybatis.spring.version>1.3.0</mybatis.spring.version>
-        <unit.version>5.0.0-ALPHA</unit.version>
+
+        <!-- Spring : spring-web, spring-webmvc, spring-context, spring-jdbc -->
         <spring.version>4.3.5.RELEASE</spring.version>
+
+        <!-- MyBatis : mybatis, mybatis-spring -->
+        <mybatis.version>3.4.1</mybatis.version>
+        <mybatis-spring.version>1.3.0</mybatis-spring.version>
+
+        <!-- Log4j2 : log4j-api, log4j-core -->
+        <log4j2.version>2.7</log4j2.version>
+
+        <!-- JUnit : junit5-engine -->
+        <junit.version>5.0.0-ALPHA</junit.version>
+
+        <!-- HSQL : hsqldb -->
         <hsqldb.version>2.3.4</hsqldb.version>
-        <jsf.version>2.2.13</jsf.version>
-        <primefaces.version>6.0</primefaces.version>
-        <servletapi.version>3.1.0</servletapi.version>
-        <servlet.version>3.1.0</servlet.version>
+
+        <!-- JSTL : jstl -->
         <jstl.version>1.2</jstl.version>
+
+        <!-- Javax Servlet : javax.servlet-api -->
+        <javax-servlet.version>3.1.0</javax-servlet.version>
+
+        <!-- JSF : jsf-api, jsf-impl -->
+        <jsf.version>2.2.13</jsf.version>
+
+        <!-- PrimeFaces : primefaces -->
+        <primefaces.version>6.0</primefaces.version>
+
+        <!-- Maven : maven-model, maven-compiler-plugin -->
+        <maven-model.version>3.0.3</maven-model.version>
+        <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
+
+        <!-- Jetty : jetty-maven-plugin, scanIntervalSeconds, webapp-contextPath -->
+        <jetty-maven-plugin.version>9.2.11.v20150529</jetty-maven-plugin.version>
+
+        <jetty-scanIntervalSeconds.value>10</jetty-scanIntervalSeconds.value>
+        <jetty-webapp-contextPath.value>/porks</jetty-webapp-contextPath.value>
+
+        <!-- JDK -->
         <jdk.version>1.8</jdk.version>
-        <hsqldb.version>2.3.2</hsqldb.version>
+
     </properties>
 
     <dependencies>
+
+        <!-- Spring -->
 
         <dependency>
             <groupId>org.springframework</groupId>
@@ -44,34 +76,49 @@
             <version>${spring.version}</version>
         </dependency>
 
-        <!--Mybatis-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <!-- MyBatis -->
+
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
             <version>${mybatis.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
-            <version>${mybatis.spring.version}</version>
+            <version>${mybatis-spring.version}</version>
         </dependency>
-        <!--log4j2-->
+
+        <!-- Log4j2 -->
+
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
             <version>${log4j2.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>${log4j2.version}</version>
         </dependency>
 
+        <!-- JUnit -->
+
         <dependency>
             <groupId>org.junit</groupId>
             <artifactId>junit5-engine</artifactId>
-            <version>${unit.version}</version>
+            <version>${junit.version}</version>
         </dependency>
+
+        <!-- HSQL -->
 
         <dependency>
             <groupId>org.hsqldb</groupId>
@@ -79,88 +126,82 @@
             <version>${hsqldb.version}</version>
         </dependency>
 
-        <!-- jstl -->
+        <!-- JSTL -->
+
         <dependency>
             <groupId>jstl</groupId>
             <artifactId>jstl</artifactId>
             <version>${jstl.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>${servletapi.version}</version>
-            <scope>provided</scope>
-        </dependency>
+        <!-- Javax Servlet -->
 
-        <!-- Servlet -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <version>${servlet.version}</version>
+            <version>${javax-servlet.version}</version>
             <scope>provided</scope>
         </dependency>
 
         <!-- JSF -->
+
         <dependency>
             <groupId>com.sun.faces</groupId>
             <artifactId>jsf-api</artifactId>
             <version>${jsf.version}</version>
             <scope>compile</scope>
         </dependency>
+
         <dependency>
             <groupId>com.sun.faces</groupId>
             <artifactId>jsf-impl</artifactId>
             <version>${jsf.version}</version>
             <scope>compile</scope>
         </dependency>
+
         <!-- PrimeFaces -->
+
         <dependency>
             <groupId>org.primefaces</groupId>
             <artifactId>primefaces</artifactId>
             <version>${primefaces.version}</version>
         </dependency>
 
-        <!-- HyperSQL DB -->
-        <dependency>
-            <groupId>org.hsqldb</groupId>
-            <artifactId>hsqldb</artifactId>
-            <version>${hsqldb.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-            <version>4.3.3.RELEASE</version>
-        </dependency>
+        <!-- Maven -->
+
         <dependency>
             <groupId>org.apache.maven</groupId>
             <artifactId>maven-model</artifactId>
-            <version>3.0.3</version>
+            <version>${maven-model.version}</version>
         </dependency>
 
     </dependencies>
 
     <build>
         <plugins>
+
+            <!-- Maven compiler -->
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.3</version>
+                <version>${maven-compiler-plugin.version}</version>
                 <configuration>
                     <source>${jdk.version}</source>
                     <target>${jdk.version}</target>
                 </configuration>
             </plugin>
 
-            <!-- embedded Jetty server, for testing -->
+            <!-- Jetty. Embedded for testing -->
+
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
-                <version>9.2.11.v20150529</version>
+                <version>${jetty-maven-plugin.version}</version>
                 <configuration>
-                    <scanIntervalSeconds>10</scanIntervalSeconds>
+                    <scanIntervalSeconds>${jetty-scanIntervalSeconds.value}</scanIntervalSeconds>
                     <webApp>
-                        <contextPath>/porks</contextPath>
+                        <contextPath>${jetty-webapp-contextPath.value}</contextPath>
                     </webApp>
                 </configuration>
             </plugin>
