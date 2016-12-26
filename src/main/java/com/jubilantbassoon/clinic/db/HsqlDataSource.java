@@ -1,4 +1,4 @@
-package com.jubilantBassoon.config.db;
+package com.jubilantbassoon.clinic.db;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,13 +13,13 @@ import javax.sql.DataSource;
 @Configuration
 public class HsqlDataSource {
 
-	@Bean
+	/*@Bean
 	public static DataSource dataSource() {
 		EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
 		EmbeddedDatabase db = builder.setType(EmbeddedDatabaseType.HSQL)
-				.addScript("db/sql/create-db.sql")
-				.addScript("db/sql/insert-data.sql")
-				.build();
+			.addScript("classpath:create-db.sql")
+			.addScript("classpath:insert-data.sql")
+			.build();
 		return db;
-	}
+	}*/
 }
