@@ -1,47 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<!DOCTYPE html
-        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui">
 
-<h:head>
-    <!--<h:outputStylesheet name="/css/login.css"/>-->
-    <style type="text/css">
-        form {
-            position:relative;
-            margin: 50px auto;
-            width: 380px;
-            height: auto;
-        }
+    <h:head>
+        <h:outputStylesheet name="/css/login.css"/>
+        <style type="text/css">
+            form {
+                position:relative;
+                margin: 50px auto;
+                width: 380px;
+                height: auto;
+            }
 
-        button {
-            position: absolute;
-            top: 10px;
-            right: -125px;
-        }
-    </style>
-    <title>Clinic</title>
-</h:head>
+            button {
+                position: absolute;
+                top: 10px;
+                right: -125px;
+            }
+        </style>
+        <title>Clinic</title>
+    </h:head>
 
-<h:body>
-    <h:form id="loginForm">
-        <p:messages autoUpdate="true" showDetail="true" showSummary="true" />
-        <p:panel header="Login">
-            <h:panelGrid columns="2">
-                <h:outputLabel value="Username :" />
-                <!--<p:inputText value="#{loginBean.username}" />-->
+    <h:body>
 
-                <h:outputLabel value="Password :" />
-                <!--<p:password value="#{loginBean.password}" />-->
+        <h:form id="loginForm">
 
-                <!--<p:commandButton value="Login " action="#{loginBean.login}" />-->
-            </h:panelGrid>
-        </p:panel>
-    </h:form>
-</h:body>
+            <!--<p:messages autoUpdate="true" showDetail="true" showSummary="true" />-->
+            <p:panel header="Login">
+                <h:panelGrid columns="2">
+
+                    <h:outputLabel value="Username :" />
+                    <p:inputText value="#{loginBean.login}" />
+
+                    <h:outputLabel value="Password :" />
+                    <p:password value="#{loginBean.password}" />
+
+                    <p:commandButton value="Login " action="#{loginBean.authorization}" />
+
+                </h:panelGrid>
+            </p:panel>
+
+
+        </h:form>
+
+    </h:body>
 
 </html>

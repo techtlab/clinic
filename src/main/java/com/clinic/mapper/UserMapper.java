@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Select;
 public interface UserMapper {
 
     final String getUserById = "SELECT * FROM users WHERE id=#{id}";
+    final String getUserByLoginPassword = "SELECT * FROM users WHERE login=#{login} AND password=#{password}";
 
     @Results(
             value = {@Result(property = "id", column = "ID"),
@@ -16,5 +17,8 @@ public interface UserMapper {
     )
 
     @Select(getUserById)
-    User getUserById(int id);
+    User getUser(int id);
+
+    /*@Select(getUserByLoginPassword)
+    User getUser(String login, String password);*/
 }

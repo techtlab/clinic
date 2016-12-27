@@ -6,7 +6,7 @@
                                   http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
 
 
-    <application>
+    <!--<application>
         <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
 
         <locale-config>
@@ -18,5 +18,27 @@
             <var>msg</var>
         </resource-bundle>
 
-    </application>
+    </application>-->
+
+
+    <!-- Authorization page -->
+    <navigation-rule>
+        <from-view-id>/login.xhtml</from-view-id>
+
+        <!-- Authorization success -->
+        <navigation-case>
+            <from-action>#{loginBean.authorization}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/main.xhtml</to-view-id>
+        </navigation-case>
+
+        <!-- Authorization fail -->
+        <navigation-case>
+            <from-action>#{loginBean.authorization}</from-action>
+            <from-outcome>fail</from-outcome>
+            <to-view-id>/login.xhtml</to-view-id>
+        </navigation-case>
+
+    </navigation-rule>
+
 </faces-config>
