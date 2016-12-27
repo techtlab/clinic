@@ -9,11 +9,39 @@
       xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-    <title>clinic</title>
+    <!--<h:outputStylesheet name="/css/login.css"/>-->
+    <style type="text/css">
+        form {
+            position:relative;
+            margin: 50px auto;
+            width: 380px;
+            height: auto;
+        }
+
+        button {
+            position: absolute;
+            top: 10px;
+            right: -125px;
+        }
+    </style>
+    <title>Clinic</title>
 </h:head>
 
 <h:body>
-    <h3>clinic</h3>
+    <h:form id="loginForm">
+        <p:messages autoUpdate="true" showDetail="true" showSummary="true" />
+        <p:panel header="Login">
+            <h:panelGrid columns="2">
+                <h:outputLabel value="Username :" />
+                <!--<p:inputText value="#{loginBean.username}" />-->
+
+                <h:outputLabel value="Password :" />
+                <!--<p:password value="#{loginBean.password}" />-->
+
+                <!--<p:commandButton value="Login " action="#{loginBean.login}" />-->
+            </h:panelGrid>
+        </p:panel>
+    </h:form>
 </h:body>
 
 </html>
