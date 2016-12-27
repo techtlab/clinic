@@ -17,13 +17,13 @@ public class UserDAOImpl {
         }
     }
 
-    /*public static User getUser(String login, String password) {
+    public static User getUserByLoginAndPassword(String login, String password) {
         SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
         try {
             UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-            return userMapper.getUser(login, password);
+            return userMapper.getUserByLoginAndPassword(login, password);
         } finally {
             sqlSession.close();
         }
-    }*/
+    }
 }

@@ -15,12 +15,12 @@ public class UserDAOTest {
         Assertions.assertEquals(user.getPassword(), "123");
     }
 
-    /*@Test
+    @Test
     public void testGetUserByLoginPassword() {
-        User user = UserDAOImpl.getUser("Mark", "123");
+        User user = UserDAOImpl.getUserByLoginAndPassword("Mark", "123");
         Assertions.assertNotNull(user);
         Assertions.assertEquals(user.getLogin(), "Mark");
         Assertions.assertEquals(user.getPassword(), "123");
-    }*/
+    }
 
 }

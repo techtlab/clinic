@@ -19,8 +19,7 @@ public class LoginBean {
 
     public String authorization() {
         try {
-//            sessionBean.setCurrentUser(UserDAOImpl.getUser(login, password));
-            sessionBean.setCurrentUser(UserDAOImpl.getUser(1));
+            sessionBean.setCurrentUser(UserDAOImpl.getUserByLoginAndPassword(login, password));
         } catch (Exception e) {
             System.out.println("### Exception: " + e.getMessage());
             return "fail";

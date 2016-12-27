@@ -1,6 +1,7 @@
 package com.clinic.mapper;
 
 import com.clinic.model.User;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
@@ -19,6 +20,6 @@ public interface UserMapper {
     @Select(getUserById)
     User getUser(int id);
 
-    /*@Select(getUserByLoginPassword)
-    User getUser(String login, String password);*/
+    @Select(getUserByLoginPassword)
+    User getUserByLoginAndPassword(@Param("login")String login, @Param("password")String password);
 }
