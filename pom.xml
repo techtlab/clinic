@@ -24,8 +24,8 @@
         <!-- JUnit : junit5-engine -->
         <junit.version>5.0.0-ALPHA</junit.version>
 
-        <!-- HSQL : hsqldb -->
-        <hsqldb.version>2.3.4</hsqldb.version>
+        <!-- mysql : mysql -->
+        <mysql.version>6.0.5</mysql.version>
 
         <!-- JSTL : jstl -->
         <jstl.version>1.2</jstl.version>
@@ -118,12 +118,12 @@
             <version>${junit.version}</version>
         </dependency>
 
-        <!-- HSQL -->
+        <!-- mysql -->
 
         <dependency>
-            <groupId>org.hsqldb</groupId>
-            <artifactId>hsqldb</artifactId>
-            <version>${hsqldb.version}</version>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
         </dependency>
 
         <!-- JSTL -->

@@ -1,31 +1,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
         http://www.springframework.org/schema/beans     
         http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
-
-   <!-- <bean id="userDao" class="com.pasha.dao.UserDaoImpl" >
-		<property name="namedParameterJdbcTemplate" ref="jdbcTemplate" />
-	</bean>
-	
-	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate" >
-		<constructor-arg ref="dataSource" />
-	</bean>
-	
-	&lt;!&ndash; Start Hsql database manager tool &ndash;&gt;
-	<bean depends-on="dataSource" class="org.springframework.beans.factory.config.MethodInvokingBean">
-		<property name="targetClass" value="org.hsqldb.util.DatabaseManagerSwing" />
-		<property name="targetMethod" value="main" />
-		<property name="arguments">
-			<list>
-				<value>&#45;&#45;url</value>
-				<value>jdbc:hsqldb:mem:dataSource</value>
-				<value>&#45;&#45;user</value>
-				<value>sa</value>
-				<value>&#45;&#45;password</value>
-				<value></value>
-			</list>
-		</property>
-	</bean>-->
 
 </beans>
