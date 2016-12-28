@@ -8,8 +8,6 @@ public class Disease {
     private String description;
     private int cured;
 
-    private User user;
-
 
     public int getId() {
         return id;
@@ -41,13 +39,5 @@ public class Disease {
 
     public void setCured(int cured) {
         this.cured = cured;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 }
