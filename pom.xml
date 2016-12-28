@@ -22,7 +22,7 @@
         <log4j2.version>2.7</log4j2.version>
 
         <!-- JUnit : junit5-engine -->
-        <junit.version>5.0.0-ALPHA</junit.version>
+        <junit.version>4.12</junit.version>
 
         <!-- mysql : mysql -->
         <mysql.version>6.0.5</mysql.version>
@@ -111,10 +111,9 @@
         </dependency>
 
         <!-- JUnit -->
-
         <dependency>
-            <groupId>org.junit</groupId>
-            <artifactId>junit5-engine</artifactId>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
             <version>${junit.version}</version>
         </dependency>
 
