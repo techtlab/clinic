@@ -9,7 +9,8 @@ public class Seance {
     private Calendar date;
     private String description;
     private Disease disease;
-    private Doctor doctor;
+
+    private User user;
 
 
     public int getId() {
@@ -44,11 +45,11 @@ public class Seance {
         this.disease = disease;
     }
 
-    public Doctor getDoctor() {
-        return doctor;
+    public User getUser() {
+        return user;
     }
 
-    public void setDoctor(Doctor doctor) {
-        this.doctor = doctor;
+    public void setUser(User user) {
+        this.user = user;
     }
 }

@@ -6,8 +6,9 @@ public class Disease {
 
     private String name;
     private String description;
-    private boolean cured;
-    private Patient patient;
+    private int cured;
+
+    private User user;
 
 
     public int getId() {
@@ -34,19 +35,19 @@ public class Disease {
         this.description = description;
     }
 
-    public boolean isCured() {
+    public int getCured() {
         return cured;
     }
 
-    public void setCured(boolean cured) {
+    public void setCured(int cured) {
         this.cured = cured;
     }
 
-    public Patient getPatient() {
-        return patient;
+    public User getUser() {
+        return user;
     }
 
-    public void setPatient(Patient patient) {
-        this.patient = patient;
+    public void setUser(User user) {
+        this.user = user;
     }
 }
