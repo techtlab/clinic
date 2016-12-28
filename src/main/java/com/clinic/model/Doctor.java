@@ -1,18 +1,9 @@
 package com.clinic.model;
 
-public class Doctor {
+public class Doctor extends User {
 
-    private int id;
     private Specialization specialization;
 
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public Specialization getSpecialization() {
         return specialization;

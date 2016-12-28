@@ -1,28 +1,18 @@
 package com.clinic.model;
 
-import java.util.Date;
+import java.util.Calendar;
 
-public class Patient {
+public class Patient extends User {
 
-    private int id;
-
-    private Date birthday;
+    private Calendar birthday;
     private Address address;
 
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public Date getBirthday() {
+    public Calendar getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(Calendar birthday) {
         this.birthday = birthday;
     }
 
