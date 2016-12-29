@@ -7,11 +7,11 @@ import org.apache.ibatis.session.SqlSession;
 
 public class UserDAOImpl {
 
-    public static User getUser(int id) {
+    public static User getUserById(int id) {
         SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
         try {
             UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-            return userMapper.getUser(id);
+            return userMapper.getUserById(id);
         } finally {
             sqlSession.close();
         }
@@ -32,6 +32,16 @@ public class UserDAOImpl {
         try {
             UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
             return userMapper.getUserByLoginAndPassword(login, password);
+        } finally {
+            sqlSession.close();
+        }
+    }
+
+    public static User getUserByLogin(String login) {
+        SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
+        try {
+            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+            return userMapper.getUserByLogin(login);
         } finally {
             sqlSession.close();
         }
@@ -59,7 +69,7 @@ public class UserDAOImpl {
         }
     }
 
-    public static void deleteNewUser(String login) {
+    public static void deleteUser(String login) {
         SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
         try {
             UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
