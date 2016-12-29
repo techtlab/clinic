@@ -6,11 +6,13 @@ public class User {
 
     private String login;
     private String password;
-    private String role;
+
+    private byte role;
 
     private String name;
     private String phone;
 
+    private String address;
 
     public int getId() {
         return id;
@@ -36,14 +38,6 @@ public class User {
         this.password = password;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
     public String getName() {
         return name;
     }
@@ -58,5 +52,21 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public byte getRole() {
+        return role;
+    }
+
+    public void setRole(byte role) {
+        this.role = role;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
