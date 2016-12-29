@@ -16,7 +16,12 @@ public interface UserMapper {
     @Results(
             value = {@Result(property = "id", column = "ID"),
                     @Result(property = "login", column = "LOGIN"),
-                    @Result(property = "password", column = "PASSWORD")}
+                    @Result(property = "password", column = "PASSWORD"),
+                    @Result(property = "role", column = "ROLE"),
+                    @Result(property = "name", column = "NAME"),
+                    @Result(property = "phone", column = "PHONE"),
+                    @Result(property = "address", column = "ADDRESS")
+            }
     )
 
     @Select(getUserById)
