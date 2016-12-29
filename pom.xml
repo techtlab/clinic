@@ -21,8 +21,11 @@
         <!-- Log4j2 : log4j-api, log4j-core -->
         <log4j2.version>2.7</log4j2.version>
 
-        <!-- JUnit : junit5-engine -->
+        <!-- JUnit : junit-->
         <junit.version>4.12</junit.version>
+
+        <!-- TestNg : testng-->
+        <testng.version>6.10</testng.version>
 
         <!-- mysql : mysql -->
         <mysql.version>6.0.5</mysql.version>
@@ -111,10 +114,19 @@
         </dependency>
 
         <!-- JUnit -->
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
+        </dependency>
+
+        <!--TestNG-->
+
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
         </dependency>
 
         <!-- mysql -->
