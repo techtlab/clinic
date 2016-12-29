@@ -8,10 +8,8 @@ public class Seance {
 
     private Calendar date;
     private String description;
+
     private Disease disease;
-
-    private User user;
-
 
     public int getId() {
         return id;
@@ -35,21 +33,5 @@ public class Seance {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Disease getDisease() {
-        return disease;
-    }
-
-    public void setDisease(Disease disease) {
-        this.disease = disease;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 }
