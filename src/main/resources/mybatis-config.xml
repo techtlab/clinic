@@ -19,6 +19,7 @@
 
     <mappers>
         <mapper class="com.clinic.mapper.UserMapper"/>
+        <mapper class="com.clinic.mapper.SeanceMapper"/>
     </mappers>
 
 </configuration>

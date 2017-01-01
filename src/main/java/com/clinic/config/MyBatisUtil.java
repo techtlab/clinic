@@ -13,7 +13,7 @@ public class MyBatisUtil {
     private static SqlSessionFactory factory;
     private static Properties properties;
     private static String driver = "com.mysql.jdbc.Driver";
-    private static String url = "jdbc:mysql://localhost:3306/clinic?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+    private static String url = "jdbc:mysql://localhost:3306/clinic";
     private static String userName = "root";
     private static String password = "root";
 

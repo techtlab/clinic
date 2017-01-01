@@ -1,15 +1,14 @@
 package com.clinic.model;
 
-import java.util.Calendar;
+import java.util.Date;
 
 public class Seance {
 
     private int id;
 
-    private Calendar date;
+    private Date date;
     private String description;
 
-    private Disease disease;
 
     public int getId() {
         return id;
@@ -19,11 +18,11 @@ public class Seance {
         this.id = id;
     }
 
-    public Calendar getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(Calendar date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
