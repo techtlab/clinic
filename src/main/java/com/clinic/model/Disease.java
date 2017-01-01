@@ -1,5 +1,8 @@
 package com.clinic.model;
 
+import java.util.List;
+
+/* TODO: Add constructors */
 public class Disease {
 
     private int id;
@@ -8,7 +11,9 @@ public class Disease {
     private String description;
     private int cured;
 
-    private User user;
+    /* TODO: One to many */
+    private List<Seance> seances;
+
 
     public int getId() {
         return id;
@@ -42,11 +47,11 @@ public class Disease {
         this.cured = cured;
     }
 
-    public User getUser() {
-        return user;
+    public List<Seance> getSeances() {
+        return seances;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setSeances(List<Seance> seances) {
+        this.seances = seances;
     }
 }

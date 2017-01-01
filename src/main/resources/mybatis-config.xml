@@ -20,6 +20,7 @@
     <mappers>
         <mapper class="com.clinic.mapper.UserMapper"/>
         <mapper class="com.clinic.mapper.SeanceMapper"/>
+        <mapper class="com.clinic.mapper.DiseaseMapper"/>
     </mappers>
 
 </configuration>
