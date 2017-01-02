@@ -1,5 +1,6 @@
 package com.clinic.bean;
 
+import com.clinic.dao.UserDAO;
 import com.clinic.dao.impl.UserDAOImpl;
 
 import javax.faces.bean.ManagedBean;
@@ -16,10 +17,12 @@ public class LoginBean {
     @ManagedProperty(value = "#{sessionBean}")
     private SessionBean sessionBean;
 
+    private UserDAO userDAO = new UserDAOImpl();
+
 
     public String authorization() {
         try {
-            sessionBean.setCurrentUser(UserDAOImpl.getUserByLoginAndPassword(login, password));
+            sessionBean.setCurrentUser(userDAO.getUserByLoginAndPassword(login, password));
         } catch (Exception e) {
             System.out.println("### Exception: " + e.getMessage());
             return "fail";
