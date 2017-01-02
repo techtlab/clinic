@@ -4,9 +4,11 @@ import com.clinic.config.MyBatisUtil;
 import com.clinic.dao.DiseaseDAO;
 import com.clinic.mapper.DiseaseMapper;
 import com.clinic.model.Disease;
+import com.clinic.model.Seance;
 import org.apache.ibatis.session.SqlSession;
 
 import java.util.Date;
+import java.util.List;
 
 public class DiseaseDAOImpl implements DiseaseDAO {
 
@@ -53,7 +55,7 @@ public class DiseaseDAOImpl implements DiseaseDAO {
         }
     }
 
-    /*public static List<Seance> getSeanceListByDiseaseId(Disease disease) {
+    public static List<Seance> getSeanceListByDisease(Disease disease) {
         SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
         try {
             DiseaseMapper diseaseMapper = sqlSession.getMapper(DiseaseMapper.class);
@@ -61,5 +63,5 @@ public class DiseaseDAOImpl implements DiseaseDAO {
         } finally {
             sqlSession.close();
         }
-    }*/
+    }
 }

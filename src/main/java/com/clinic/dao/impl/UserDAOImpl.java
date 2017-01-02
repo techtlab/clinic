@@ -2,8 +2,11 @@ package com.clinic.dao.impl;
 
 import com.clinic.config.MyBatisUtil;
 import com.clinic.mapper.UserMapper;
+import com.clinic.model.Disease;
 import com.clinic.model.User;
 import org.apache.ibatis.session.SqlSession;
+
+import java.util.List;
 
 public class UserDAOImpl {
 
@@ -91,13 +94,13 @@ public class UserDAOImpl {
         }
     }
 
-    /*public static List<Disease> getDiseaseListByUserId(int id) {
+    public static List<Disease> getDiseaseListByUser(User user) {
         SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
         try {
-            DiseaseMapper diseaseMapper = sqlSession.getMapper(DiseaseMapper.class);
-            return diseaseMapper.getDiseaseListByUserId(id);
+            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+            return userMapper.getDiseaseListByUserId(user.getId());
         } finally {
             sqlSession.close();
         }
-    }*/
+    }
 }
