@@ -7,7 +7,6 @@ import com.clinic.model.Seance;
 import org.apache.ibatis.session.SqlSession;
 
 import java.util.Date;
-import java.util.List;
 
 public class SeanceDAOImpl implements SeanceDAO {
 
@@ -16,17 +15,6 @@ public class SeanceDAOImpl implements SeanceDAO {
         try {
             SeanceMapper seanceMapper = sqlSession.getMapper(SeanceMapper.class);
             return seanceMapper.getSeanceById(id);
-        } finally {
-            sqlSession.close();
-        }
-    }
-
-    public static void addSeance(Date date, String description, int diseaseId) {
-        SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
-        try {
-            SeanceMapper seanceMapper = sqlSession.getMapper(SeanceMapper.class);
-            seanceMapper.addSeance(date, description, diseaseId);
-            sqlSession.commit();
         } finally {
             sqlSession.close();
         }
@@ -49,16 +37,6 @@ public class SeanceDAOImpl implements SeanceDAO {
             SeanceMapper seanceMapper = sqlSession.getMapper(SeanceMapper.class);
             seanceMapper.deleteSeance(id);
             sqlSession.commit();
-        } finally {
-            sqlSession.close();
-        }
-    }
-
-    public static List<Seance> getSeanceListByDiseaseId(int id) {
-        SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
-        try {
-            SeanceMapper seanceMapper = sqlSession.getMapper(SeanceMapper.class);
-            return seanceMapper.getSeanceListByDiseaseId(id);
         } finally {
             sqlSession.close();
         }

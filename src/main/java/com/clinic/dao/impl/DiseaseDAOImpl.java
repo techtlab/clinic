@@ -6,11 +6,8 @@ import com.clinic.mapper.DiseaseMapper;
 import com.clinic.model.Disease;
 import org.apache.ibatis.session.SqlSession;
 
-import java.util.List;
+import java.util.Date;
 
-/* TODO: Refactoring */
-/* TODO: Add overloading */
-/* TODO: Add search by criteria */
 public class DiseaseDAOImpl implements DiseaseDAO {
 
     public static Disease getDiseaseById(int id) {
@@ -45,24 +42,24 @@ public class DiseaseDAOImpl implements DiseaseDAO {
         }
     }
 
-    public static void addDisease(String name, String description, int cured, int userId) {
+    public static void addSeance(Date date, String description, Disease disease) {
         SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
         try {
             DiseaseMapper diseaseMapper = sqlSession.getMapper(DiseaseMapper.class);
-            diseaseMapper.addDisease(name, description, cured, userId);
+            diseaseMapper.addSeance(date, description, disease.getId());
             sqlSession.commit();
         } finally {
             sqlSession.close();
         }
     }
 
-    public static List<Disease> getDiseaseListByUserId(int id) {
+    /*public static List<Seance> getSeanceListByDiseaseId(Disease disease) {
         SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
         try {
             DiseaseMapper diseaseMapper = sqlSession.getMapper(DiseaseMapper.class);
-            return diseaseMapper.getDiseaseListByUserId(id);
+            return diseaseMapper.getSeanceListByDiseaseId(disease.getId());
         } finally {
             sqlSession.close();
         }
-    }
+    }*/
 }

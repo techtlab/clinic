@@ -1,8 +1,8 @@
 package com.clinic.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
-/* TODO: Add constructors */
 public class Disease {
 
     private int id;
@@ -11,8 +11,7 @@ public class Disease {
     private String description;
     private int cured;
 
-    /* TODO: One to many */
-    private List<Seance> seances;
+    private List<Seance> seances = new ArrayList<Seance>();
 
 
     public int getId() {
