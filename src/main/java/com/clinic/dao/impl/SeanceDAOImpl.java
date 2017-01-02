@@ -10,7 +10,7 @@ import java.util.Date;
 
 public class SeanceDAOImpl implements SeanceDAO {
 
-    public static Seance getSeanceById(int id) {
+    public Seance getSeanceById(int id) {
         SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
         try {
             SeanceMapper seanceMapper = sqlSession.getMapper(SeanceMapper.class);
@@ -20,7 +20,7 @@ public class SeanceDAOImpl implements SeanceDAO {
         }
     }
 
-    public static void updateSeance(Date date, String description, int id) {
+    public void updateSeance(Date date, String description, int id) {
         SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
         try {
             SeanceMapper seanceMapper = sqlSession.getMapper(SeanceMapper.class);
@@ -31,7 +31,7 @@ public class SeanceDAOImpl implements SeanceDAO {
         }
     }
 
-    public static void deleteSeance(int id) {
+    public void deleteSeance(int id) {
         SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
         try {
             SeanceMapper seanceMapper = sqlSession.getMapper(SeanceMapper.class);

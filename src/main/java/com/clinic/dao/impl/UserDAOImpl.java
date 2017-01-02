@@ -1,6 +1,7 @@
 package com.clinic.dao.impl;
 
 import com.clinic.config.MyBatisUtil;
+import com.clinic.dao.UserDAO;
 import com.clinic.mapper.UserMapper;
 import com.clinic.model.Disease;
 import com.clinic.model.User;
@@ -8,9 +9,9 @@ import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
 
-public class UserDAOImpl {
+public class UserDAOImpl implements UserDAO {
 
-    public static User getUserById(int id) {
+    public User getUserById(int id) {
         SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
         try {
             UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
@@ -20,7 +21,7 @@ public class UserDAOImpl {
         }
     }
 
-    public static User getUserByRole(byte role) {
+    public User getUserByRole(byte role) {
         SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
         try {
             UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
@@ -30,7 +31,7 @@ public class UserDAOImpl {
         }
     }
 
-    public static User getUserByLoginAndPassword(String login, String password) {
+    public User getUserByLoginAndPassword(String login, String password) {
         SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
         try {
             UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
@@ -40,7 +41,7 @@ public class UserDAOImpl {
         }
     }
 
-    public static User getUserByLogin(String login) {
+    public User getUserByLogin(String login) {
         SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
         try {
             UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
@@ -50,7 +51,7 @@ public class UserDAOImpl {
         }
     }
 
-    public static void updateUserInfoByLogin(String login, String password, byte role, String name, String phone, String address) {
+    public void updateUserInfoByLogin(String login, String password, byte role, String name, String phone, String address) {
         SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
         try {
             UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
@@ -61,7 +62,7 @@ public class UserDAOImpl {
         }
     }
 
-    public static void addNewUser(String login, String password, byte role, String name, String phone, String address) {
+    public void addNewUser(String login, String password, byte role, String name, String phone, String address) {
         SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
         try {
             UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
@@ -72,7 +73,7 @@ public class UserDAOImpl {
         }
     }
 
-    public static void deleteUser(String login) {
+    public void deleteUser(String login) {
         SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
         try {
             UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
@@ -83,7 +84,7 @@ public class UserDAOImpl {
         }
     }
 
-    public static void addDisease(String name, String description, int cured, User user) {
+    public void addDisease(String name, String description, int cured, User user) {
         SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
         try {
             UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
@@ -94,7 +95,7 @@ public class UserDAOImpl {
         }
     }
 
-    public static List<Disease> getDiseaseListByUser(User user) {
+    public List<Disease> getDiseaseListByUser(User user) {
         SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
         try {
             UserMapper userMapper = sqlSession.getMapper(UserMapper.class);

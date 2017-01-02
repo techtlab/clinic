@@ -12,7 +12,7 @@ import java.util.List;
 
 public class DiseaseDAOImpl implements DiseaseDAO {
 
-    public static Disease getDiseaseById(int id) {
+    public Disease getDiseaseById(int id) {
         SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
         try {
             DiseaseMapper diseaseMapper = sqlSession.getMapper(DiseaseMapper.class);
@@ -22,7 +22,7 @@ public class DiseaseDAOImpl implements DiseaseDAO {
         }
     }
 
-    public static void updateDisease(String name, String description, int cured, int id) {
+    public void updateDisease(String name, String description, int cured, int id) {
         SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
         try {
             DiseaseMapper diseaseMapper = sqlSession.getMapper(DiseaseMapper.class);
@@ -33,7 +33,7 @@ public class DiseaseDAOImpl implements DiseaseDAO {
         }
     }
 
-    public static void deleteDisease(int id) {
+    public void deleteDisease(int id) {
         SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
         try {
             DiseaseMapper diseaseMapper = sqlSession.getMapper(DiseaseMapper.class);
@@ -44,7 +44,7 @@ public class DiseaseDAOImpl implements DiseaseDAO {
         }
     }
 
-    public static void addSeance(Date date, String description, Disease disease) {
+    public void addSeance(Date date, String description, Disease disease) {
         SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
         try {
             DiseaseMapper diseaseMapper = sqlSession.getMapper(DiseaseMapper.class);
@@ -55,7 +55,7 @@ public class DiseaseDAOImpl implements DiseaseDAO {
         }
     }
 
-    public static List<Seance> getSeanceListByDisease(Disease disease) {
+    public List<Seance> getSeanceListByDisease(Disease disease) {
         SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
         try {
             DiseaseMapper diseaseMapper = sqlSession.getMapper(DiseaseMapper.class);
