@@ -79,4 +79,25 @@ public class UserDAOImpl {
             sqlSession.close();
         }
     }
+
+    public static void addDisease(String name, String description, int cured, User user) {
+        SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
+        try {
+            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+            userMapper.addDisease(name, description, cured, user.getId());
+            sqlSession.commit();
+        } finally {
+            sqlSession.close();
+        }
+    }
+
+    /*public static List<Disease> getDiseaseListByUserId(int id) {
+        SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
+        try {
+            DiseaseMapper diseaseMapper = sqlSession.getMapper(DiseaseMapper.class);
+            return diseaseMapper.getDiseaseListByUserId(id);
+        } finally {
+            sqlSession.close();
+        }
+    }*/
 }

@@ -1,18 +1,21 @@
 package com.clinic.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
 
     private int id;
 
     private String login;
     private String password;
-
     private byte role;
-
     private String name;
     private String phone;
-
     private String address;
+
+    private List<Disease> diseases = new ArrayList<Disease>();
+
 
     public int getId() {
         return id;
@@ -68,5 +71,13 @@ public class User {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public List<Disease> getDiseases() {
+        return diseases;
+    }
+
+    public void setDiseases(List<Disease> diseases) {
+        this.diseases = diseases;
     }
 }
