@@ -1,20 +1,26 @@
+import com.clinic.dao.UserDAO;
 import com.clinic.dao.impl.UserDAOImpl;
+import com.clinic.model.Disease;
 import com.clinic.model.User;
 import org.junit.Assert;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 public class UserDAOTest {
 
     private User user;
+    private UserDAO userDAO = new UserDAOImpl();
+
 
     @Test
     public void testAddNewUser() {
-        UserDAOImpl.addNewUser("MarkStar","123", (byte)0, "Mark de Volan", "43-54-23", "st.ra, ew, 4, 4");
+        userDAO.addNewUser("MarkStar","123", (byte)0, "Mark de Volan", "43-54-23", "st.ra, ew, 4, 4");
     }
 
     @Test(dependsOnMethods = {"testAddNewUser"})
     public void testGetUserByLoginAndPassword() {
-        user = UserDAOImpl.getUserByLoginAndPassword("MarkStar", "123");
+        user = userDAO.getUserByLoginAndPassword("MarkStar", "123");
         Assert.assertNotNull(user);
         Assert.assertEquals(user.getLogin(), "MarkStar");
         Assert.assertEquals(user.getPassword(), "123");
@@ -22,7 +28,7 @@ public class UserDAOTest {
 
     @Test(dependsOnMethods = {"testGetUserByLoginAndPassword"})
     public void testGetUserById() {
-        user = UserDAOImpl.getUserById(user.getId());
+        user = userDAO.getUserById(user.getId());
         Assert.assertNotNull(user);
         Assert.assertEquals(user.getLogin(), "MarkStar");
         Assert.assertEquals(user.getPassword(), "123");
@@ -30,7 +36,7 @@ public class UserDAOTest {
 
     @Test(dependsOnMethods = {"testGetUserById"})
     public void testGetUserByRole() {
-        user = UserDAOImpl.getUserByRole(user.getRole());
+        user = userDAO.getUserByRole(user.getRole());
         Assert.assertNotNull(user);
         Assert.assertEquals(user.getLogin(), "MarkStar");
         Assert.assertEquals(user.getPassword(), "123");
@@ -38,12 +44,12 @@ public class UserDAOTest {
 
     @Test(dependsOnMethods = {"testGetUserByRole"})
     public void testUpdateUserInfoByLogin() {
-        UserDAOImpl.updateUserInfoByLogin(user.getLogin(), "234", (byte)1, "Alex", "111-11-11", "st.Richi, ew, 4, 4");
+        userDAO.updateUserInfoByLogin(user.getLogin(), "234", (byte)1, "Alex", "111-11-11", "st.Richi, ew, 4, 4");
     }
 
     @Test(dependsOnMethods = {"testUpdateUserInfoByLogin"})
     public void testGetUserByLogin() {
-        User changingUser = UserDAOImpl.getUserByLogin(user.getLogin());
+        User changingUser = userDAO.getUserByLogin(user.getLogin());
         Assert.assertNotEquals(changingUser.getPassword(), user.getPassword());
         Assert.assertNotEquals(changingUser.getRole(), user.getRole());
         Assert.assertNotEquals(changingUser.getName(), user.getName());
@@ -53,8 +59,30 @@ public class UserDAOTest {
 
     @Test(dependsOnMethods = {"testGetUserByLogin"})
     public void testDeleteUser() {
-        UserDAOImpl.deleteUser("MarkStar");
-        User dUser = UserDAOImpl.getUserByLogin(user.getLogin());
+        userDAO.deleteUser("MarkStar");
+        User dUser = userDAO.getUserByLogin(user.getLogin());
         Assert.assertNull(dUser);
+    }
+
+    @Test(dependsOnMethods = {"testGetUserByLoginAndPassword"})
+    public void testAddDisease(){
+        /*user = userDAO.getUserByLoginAndPassword("MarkStar", "123");
+        Assert.assertNotNull(user);
+
+        int beforeCount = user.getDiseases().size();
+        userDAO.addDisease("now", "descr", 0, user);
+
+        user = userDAO.getUserByLoginAndPassword("MarkStar", "123");
+        Assert.assertNotNull(user);
+        int afterCount = user.getDiseases().size();
+
+        Assert.assertNotEquals(beforeCount, afterCount);*/
+    }
+
+    @Test(dependsOnMethods = {"testAddDisease"})
+    public void testGetDiseaseListByUser(){
+        /*user = userDAO.getUserById(3);
+        List<Disease> diseaseList = userDAO.getDiseaseListByUser(user);
+        System.out.println("size " + diseaseList.size());*/
     }
 }
