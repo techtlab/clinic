@@ -61,6 +61,34 @@
     <navigation-rule>
         <from-view-id>/authorization.xhtml</from-view-id>
 
+        <!-- ACTION: Update success -->
+        <navigation-case>
+            <from-action>#{settingsBean.updateUser}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/settings.xhtml</to-view-id>
+        </navigation-case>
+
+        <!-- ACTION: Update fail -->
+        <navigation-case>
+            <from-action>#{settingsBean.updateUser}</from-action>
+            <from-outcome>fail</from-outcome>
+            <to-view-id>/settings.xhtml</to-view-id>
+        </navigation-case>
+
+        <!-- ACTION: Delete success -->
+        <navigation-case>
+            <from-action>#{settingsBean.deleteUser}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/authorization.xhtml</to-view-id>
+        </navigation-case>
+
+        <!-- ACTION: Delete fail -->
+        <navigation-case>
+            <from-action>#{settingsBean.deleteUser}</from-action>
+            <from-outcome>fail</from-outcome>
+            <to-view-id>/settings.xhtml</to-view-id>
+        </navigation-case>
+
         <!-- LINK: Authorization page link -->
         <navigation-case>
             <from-outcome>authorization</from-outcome>

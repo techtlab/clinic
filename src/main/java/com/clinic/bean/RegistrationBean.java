@@ -1,5 +1,7 @@
 package com.clinic.bean;
 
+import com.clinic.dao.UserDAO;
+import com.clinic.dao.impl.UserDAOImpl;
 import com.clinic.model.User;
 
 import javax.faces.bean.ManagedBean;
@@ -13,9 +15,30 @@ public class RegistrationBean {
     @ManagedProperty(value = "#{sessionBean}")
     private SessionBean sessionBean;
 
-    User user = new User();
+    private User user = new User();
+
+    private UserDAO userDAO = new UserDAOImpl();
+
+
+    /*
+    * REGISTRATION
+    * Save user.
+    * Generate exception.
+    * Generate message.
+    * */
 
     public String registration() {
+        try {
+            /* TODO: change to addUser(user) */
+            userDAO.addNewUser(user.getLogin(), user.getPassword(), user.getRole(),
+                    user.getName(), user.getPhone(), user.getAddress());
+            sessionBean.setCurrentUser(user);
+        } catch (Exception e) {
+            /* TODO: generate exception */
+            return "fail";
+        }
+        /* TODO: generate message */
+        user = new User();
         return "success";
     }
 

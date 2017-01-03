@@ -11,20 +11,26 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class AuthorizationBean {
 
-    private String login;
-    private String password;
-
     @ManagedProperty(value = "#{sessionBean}")
     private SessionBean sessionBean;
 
+    private String login;
+    private String password;
+
     private UserDAO userDAO = new UserDAOImpl();
 
+
+    /*
+    * AUTHORIZATION
+    * Get user by login, password.
+    * Generate exception.
+    * */
 
     public String authorization() {
         try {
             sessionBean.setCurrentUser(userDAO.getUserByLoginAndPassword(login, password));
         } catch (Exception e) {
-            System.out.println("### Exception: " + e.getMessage());
+            /* TODO: generate exception */
             return "fail";
         }
         login = password = "";
