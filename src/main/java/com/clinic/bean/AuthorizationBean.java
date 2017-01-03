@@ -7,9 +7,9 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
-@ManagedBean(name = "loginBean")
+@ManagedBean(name = "authorizationBean")
 @SessionScoped
-public class LoginBean {
+public class AuthorizationBean {
 
     private String login;
     private String password;

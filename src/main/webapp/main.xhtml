@@ -3,6 +3,7 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
 
     <h:head>
@@ -10,12 +11,14 @@
     </h:head>
 
     <h:body>
+        <ui:composition template="template/layout.xhtml">
 
-        <h:panelGrid columns="2">
-            <h:outputLabel value="#{sessionBean.currentUser.login}"/>
-            <h:outputLabel value="#{sessionBean.currentUser.password}"/>
-        </h:panelGrid>
+            <ui:define name="content">
+                <h:outputLabel value="#{sessionBean.currentUser.login}"/>
+                <h:outputLabel value="#{sessionBean.currentUser.password}"/>
+            </ui:define>
 
+        </ui:composition>
     </h:body>
 
 </html>

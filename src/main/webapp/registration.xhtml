@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Clinic</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="template/layout.xhtml">
+            <ui:define name="content">
+                <h:form>
+
+
+                    <h:outputLabel value="Registration page"/>
+                    <br/><br/>
+
+                    <h:panelGrid columns="2">
+
+                        <h:outputLabel value="Login"/>
+                        <p:inputText value="#{registrationBean.user.login}"/>
+
+                        <h:outputLabel value="Password"/>
+                        <p:password value="#{registrationBean.user.password}"/>
+
+                        <h:outputLabel value="Name"/>
+                        <p:inputText value="#{registrationBean.user.name}"/>
+
+                        <h:outputLabel value="Phone"/>
+                        <p:password value="#{registrationBean.user.phone}"/>
+
+                        <h:outputLabel value="Address"/>
+                        <p:inputText value="#{registrationBean.user.address}"/>
+
+                        <p:commandButton value="Registration" action="#{registrationBean.registration}"/>
+
+                    </h:panelGrid>
+
+                    <br/>
+                    <p:link outcome="authorization" value="Login"/>
+
+
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

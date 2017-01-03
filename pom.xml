@@ -41,6 +41,7 @@
 
         <!-- PrimeFaces : primefaces -->
         <primefaces.version>6.0</primefaces.version>
+        <primefaces-themes.version>1.0.8</primefaces-themes.version>
 
         <!-- Maven : maven-model, maven-compiler-plugin -->
         <maven-model.version>3.0.3</maven-model.version>
@@ -178,6 +179,12 @@
             <version>${primefaces.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.primefaces.extensions</groupId>
+            <artifactId>all-themes</artifactId>
+            <version>${primefaces-themes.version}</version>
+        </dependency>
+
         <!-- Maven -->
 
         <dependency>
@@ -219,4 +226,15 @@
 
         </plugins>
     </build>
+
+    <!-- Repository -->
+
+    <repositories>
+        <repository>
+            <id>prime-repo</id>
+            <name>Prime Repo</name>
+            <url>http://repository.primefaces.org</url>
+        </repository>
+    </repositories>
+
 </project>
