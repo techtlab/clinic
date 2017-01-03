@@ -5,7 +5,7 @@ import com.clinic.model.User;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-@ManagedBean
+@ManagedBean(name = "sessionBean")
 @SessionScoped
 public class SessionBean {
 

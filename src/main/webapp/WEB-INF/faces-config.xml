@@ -9,64 +9,171 @@
     <navigation-rule>
         <from-view-id>/authorization.xhtml</from-view-id>
 
-        <!-- Authorization success -->
+        <!-- ACTION: Authorization success -->
         <navigation-case>
             <from-action>#{authorizationBean.authorization}</from-action>
             <from-outcome>success</from-outcome>
-            <to-view-id>/main.xhtml</to-view-id>
+            <to-view-id>/settings.xhtml</to-view-id>
         </navigation-case>
 
-        <!-- Authorization fail -->
+        <!-- ACTION: Authorization fail -->
         <navigation-case>
             <from-action>#{authorizationBean.authorization}</from-action>
             <from-outcome>fail</from-outcome>
             <to-view-id>/authorization.xhtml</to-view-id>
         </navigation-case>
 
-        <!-- Registration page link -->
+        <!-- LINK: Registration page link -->
         <navigation-case>
             <from-outcome>registration</from-outcome>
             <to-view-id>/registration.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 
+
     <!-- Registration page -->
     <navigation-rule>
         <from-view-id>/registration.xhtml</from-view-id>
 
-        <!-- Registration success -->
+        <!-- ACTION: Registration success -->
         <navigation-case>
             <from-action>#{registrationBean.registration}</from-action>
             <from-outcome>success</from-outcome>
-            <to-view-id>/main.xhtml</to-view-id>
+            <to-view-id>/settings.xhtml</to-view-id>
         </navigation-case>
 
-        <!-- Registration fail -->
+        <!-- ACTION: Registration fail -->
         <navigation-case>
             <from-action>#{registrationBean.registration}</from-action>
             <from-outcome>fail</from-outcome>
             <to-view-id>/registration.xhtml</to-view-id>
         </navigation-case>
 
-        <!-- Authorization page link -->
+        <!-- LINK: Authorization page link -->
         <navigation-case>
             <from-outcome>authorization</from-outcome>
             <to-view-id>/authorization.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 
-    <!--<application>
-        <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
 
-        <locale-config>
-            <default-locale>en</default-locale>
-        </locale-config>
+    <!-- Settings page -->
+    <navigation-rule>
+        <from-view-id>/authorization.xhtml</from-view-id>
 
-        <resource-bundle>
-            <base-name>messages</base-name>
-            <var>msg</var>
-        </resource-bundle>
+        <!-- LINK: Authorization page link -->
+        <navigation-case>
+            <from-outcome>authorization</from-outcome>
+            <to-view-id>/authorization.xhtml</to-view-id>
+        </navigation-case>
 
-    </application>-->
+        <!-- LINK: Patient page link -->
+        <navigation-case>
+            <from-outcome>patient</from-outcome>
+            <to-view-id>/patient.xhtml</to-view-id>
+        </navigation-case>
+
+        <!-- LINK: Disease page link -->
+        <navigation-case>
+            <from-outcome>disease</from-outcome>
+            <to-view-id>/disease.xhtml</to-view-id>
+        </navigation-case>
+
+        <!-- LINK: Seance page link -->
+        <navigation-case>
+            <from-outcome>seance</from-outcome>
+            <to-view-id>/seance.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+    <!-- Patient page -->
+    <navigation-rule>
+        <from-view-id>/authorization.xhtml</from-view-id>
+
+        <!-- LINK: Authorization page link -->
+        <navigation-case>
+            <from-outcome>authorization</from-outcome>
+            <to-view-id>/authorization.xhtml</to-view-id>
+        </navigation-case>
+
+        <!-- LINK: Settings page link -->
+        <navigation-case>
+            <from-outcome>settings</from-outcome>
+            <to-view-id>/settings.xhtml</to-view-id>
+        </navigation-case>
+
+        <!-- LINK: Disease page link -->
+        <navigation-case>
+            <from-outcome>disease</from-outcome>
+            <to-view-id>/disease.xhtml</to-view-id>
+        </navigation-case>
+
+        <!-- LINK: Seance page link -->
+        <navigation-case>
+            <from-outcome>seance</from-outcome>
+            <to-view-id>/seance.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+    <!-- Disease page -->
+    <navigation-rule>
+        <from-view-id>/authorization.xhtml</from-view-id>
+
+        <!-- LINK: Authorization page link -->
+        <navigation-case>
+            <from-outcome>authorization</from-outcome>
+            <to-view-id>/authorization.xhtml</to-view-id>
+        </navigation-case>
+
+        <!-- LINK: Patient page link -->
+        <navigation-case>
+            <from-outcome>patient</from-outcome>
+            <to-view-id>/patient.xhtml</to-view-id>
+        </navigation-case>
+
+        <!-- LINK: Settings page link -->
+        <navigation-case>
+            <from-outcome>settings</from-outcome>
+            <to-view-id>/settings.xhtml</to-view-id>
+        </navigation-case>
+
+        <!-- LINK: Seance page link -->
+        <navigation-case>
+            <from-outcome>seance</from-outcome>
+            <to-view-id>/seance.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+    <!-- Seance page-->
+    <navigation-rule>
+        <from-view-id>/authorization.xhtml</from-view-id>
+
+        <!-- LINK: Authorization page link -->
+        <navigation-case>
+            <from-outcome>authorization</from-outcome>
+            <to-view-id>/authorization.xhtml</to-view-id>
+        </navigation-case>
+
+        <!-- LINK: Patient page link -->
+        <navigation-case>
+            <from-outcome>patient</from-outcome>
+            <to-view-id>/patient.xhtml</to-view-id>
+        </navigation-case>
+
+        <!-- LINK: Disease page link -->
+        <navigation-case>
+            <from-outcome>disease</from-outcome>
+            <to-view-id>/disease.xhtml</to-view-id>
+        </navigation-case>
+
+        <!-- LINK: Settings page link -->
+        <navigation-case>
+            <from-outcome>settings</from-outcome>
+            <to-view-id>/settings.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 
 </faces-config>
