@@ -1,6 +1,9 @@
 package com.clinic.bean;
 
+import com.clinic.dao.UserDAO;
+import com.clinic.dao.impl.UserDAOImpl;
 import com.clinic.model.Disease;
+import com.clinic.model.User;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -16,9 +19,25 @@ public class DiseaseBean {
     @ManagedProperty(value = "#{sessionBean}")
     private SessionBean sessionBean;
 
-    private List<Disease> diseases = new ArrayList<>();
+    private UserDAO userDAO = new UserDAOImpl();
 
+    private List<Disease> diseases = new ArrayList<>();
     private Disease selectedDisease = new Disease();
+
+
+    public String showSelectedDisease() {
+        sessionBean.setSelectedDisease(selectedDisease);
+        return "success";
+    }
+
+    @PostConstruct
+    public void init() {
+
+        User user = userDAO.getUserById(3);
+        sessionBean.setSelectedUser(user);
+
+        diseases = userDAO.getDiseaseListByUser(user);
+    }
 
     public SessionBean getSessionBean() {
         return sessionBean;
@@ -42,28 +61,5 @@ public class DiseaseBean {
 
     public void setSelectedDisease(Disease selectedDisease) {
         this.selectedDisease = selectedDisease;
-    }
-
-    public String showSelectedDisease() {
-        sessionBean.setSelectedDisease(selectedDisease);
-        return "success";
-    }
-
-    @PostConstruct
-    public void init() {
-        /* TODO: get diseases by role */
-//        users = userDAO.getUserByRole(Byte.valueOf("0"));
-
-        Disease disease = new Disease();
-        disease.setName("ОРВИ");
-        disease.setDescription("Кашель");
-        diseases.add(disease);
-        diseases.add(disease);
-        diseases.add(disease);
-        diseases.add(disease);
-        diseases.add(disease);
-        diseases.add(disease);
-        diseases.add(disease);
-        diseases.add(disease);
     }
 }

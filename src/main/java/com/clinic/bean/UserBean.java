@@ -19,15 +19,20 @@ public class UserBean {
     private SessionBean sessionBean;
 
     private List<User> users = new ArrayList<>();
+    private User selectedUser = new User();
 
     private UserDAO userDAO = new UserDAOImpl();
-
-    private User selectedUser = new User();
 
 
     public String showSelectedUser() {
         sessionBean.setSelectedUser(selectedUser);
         return "success";
+    }
+
+    @PostConstruct
+    public void init() {
+        byte patient = 0;
+        users = userDAO.getUsersByRole(patient);
     }
 
     public User getSelectedUser() {
@@ -44,46 +49,6 @@ public class UserBean {
 
     public void setSessionBean(SessionBean sessionBean) {
         this.sessionBean = sessionBean;
-    }
-
-    @PostConstruct
-    public void init() {
-        /* TODO: get users by role */
-//        users = userDAO.getUserByRole(Byte.valueOf("0"));
-        User user = new User();
-        user.setName("Иван Иванович Иванов");
-        user.setAddress("г.Гродно, ул.Тавлая, д.12");
-        user.setPhone("+375(33) 324-67-84");
-        User user2 = new User();
-        user2.setName("Пётр Иванович Иванов");
-        user2.setAddress("г.Гродно, ул.Тавлая, д.12");
-        user2.setPhone("+375(33) 324-67-84");
-        users.add(user);
-        users.add(user2);
-        users.add(user);
-        users.add(user);
-        users.add(user);
-        users.add(user);
-        users.add(user);
-        users.add(user);
-        users.add(user);
-        users.add(user);
-        users.add(user);
-        users.add(user);
-        users.add(user);
-        users.add(user);
-        users.add(user);
-        users.add(user);
-        users.add(user);
-        users.add(user);
-        users.add(user);
-        users.add(user);
-        users.add(user);
-        users.add(user);
-        users.add(user);
-        users.add(user);
-        users.add(user);
-        users.add(user);
     }
 
     public List<User> getUsers() {

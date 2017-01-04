@@ -14,9 +14,15 @@
             <ui:define name="content">
                 <h:form>
 
-                    <h:outputLabel value="#{sessionBean.selectedUser.name}"/><br/>
-                    <h:outputLabel value="#{sessionBean.selectedUser.phone}"/><br/>
-                    <h:outputLabel value="#{sessionBean.selectedUser.address}"/><br/><br/>
+                    <p:panelGrid columns="2">
+                        <h:outputText value="Name"/>
+                        <h:outputText value="#{sessionBean.selectedUser.name}"/>
+                        <h:outputText value="Phone"/>
+                        <h:outputText value="#{sessionBean.selectedUser.phone}"/>
+                        <h:outputText value="Address"/>
+                        <h:outputText value="#{sessionBean.selectedUser.address}"/>
+                    </p:panelGrid>
+                    <br/>
 
                     <p:panelGrid columns="2">
                         <p:dataGrid var="disease" value="#{diseaseBean.diseases}" columns="1" layout="grid"
@@ -28,12 +34,18 @@
                                 Diseases
                             </f:facet>
 
-                            <h:panelGrid columns="2">
-                                <h:outputText value="#{disease.name}"/>
-                                <p:commandButton value="Show" action="#{diseaseBean.showSelectedDisease}">
-                                    <f:setPropertyActionListener target="#{diseaseBean.selectedDisease}" value="#{disease}" />
-                                </p:commandButton>
-                            </h:panelGrid>
+                            <p:panelGrid columns="2" layout="grid">
+                                <p:column>
+                                    <h:outputText value="#{disease.name}"/>
+                                </p:column>
+
+                                <p:column>
+                                    <p:commandButton value="Show" action="#{diseaseBean.showSelectedDisease}">
+                                        <f:setPropertyActionListener target="#{diseaseBean.selectedDisease}" value="#{disease}" />
+                                    </p:commandButton>
+                                </p:column>
+                            </p:panelGrid>
+
                         </p:dataGrid>
 
                         <p:panelGrid columns="1">

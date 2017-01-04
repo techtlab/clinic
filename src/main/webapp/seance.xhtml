@@ -14,8 +14,13 @@
             <ui:define name="content">
                 <h:form>
 
-                    <h:outputLabel value="#{sessionBean.selectedDisease.name}"/><br/>
-                    <h:outputLabel value="#{sessionBean.selectedDisease.description}"/><br/><br/>
+                    <p:panelGrid columns="2">
+                        <h:outputText value="Name"/>
+                        <h:outputText value="#{sessionBean.selectedDisease.name}"/>
+                        <h:outputText value="Description"/>
+                        <h:outputText value="#{sessionBean.selectedDisease.description}"/>
+                    </p:panelGrid>
+                    <br/>
 
                     <p:panelGrid columns="2">
                         <p:dataGrid var="seance" value="#{seanceBean.seances}" columns="1" layout="grid"
@@ -27,12 +32,18 @@
                                 Seances
                             </f:facet>
 
-                            <h:panelGrid columns="2">
-                                <h:outputText value="#{seance.description}"/>
-                                <p:commandButton value="Show" action="#{seanceBean.showSelectedSeance}">
-                                    <f:setPropertyActionListener target="#{seanceBean.selectedSeance}" value="#{seance}" />
-                                </p:commandButton>
-                            </h:panelGrid>
+                            <p:panelGrid columns="2" layout="grid">
+                                <p:column>
+                                    <h:outputText value="#{seance.description}"/>
+                                </p:column>
+
+                                <p:column>
+                                    <p:commandButton value="Show" action="#{seanceBean.showSelectedSeance}">
+                                        <f:setPropertyActionListener target="#{seanceBean.selectedSeance}" value="#{seance}" />
+                                    </p:commandButton>
+                                </p:column>
+                            </p:panelGrid>
+
                         </p:dataGrid>
 
                         <p:panelGrid columns="1">
@@ -48,8 +59,7 @@
                         </p:panelGrid>
                     </p:panelGrid>
 
-                    <br/>
-                    <h:outputLabel value="#{sessionBean.selectedSeance.description}"/>
+                    <!--<h:outputLabel value="#{sessionBean.selectedSeance.description}"/>-->
 
                 </h:form>
             </ui:define>

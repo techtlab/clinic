@@ -21,11 +21,11 @@ public class UserDAOImpl implements UserDAO {
         }
     }
 
-    public User getUserByRole(byte role) {
+    public List<User> getUsersByRole(byte role) {
         SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
         try {
             UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-            return userMapper.getUserByRole(role);
+            return userMapper.getUsersByRole(role);
         } finally {
             sqlSession.close();
         }

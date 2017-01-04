@@ -1,5 +1,8 @@
 package com.clinic.bean;
 
+import com.clinic.dao.DiseaseDAO;
+import com.clinic.dao.impl.DiseaseDAOImpl;
+import com.clinic.model.Disease;
 import com.clinic.model.Seance;
 
 import javax.annotation.PostConstruct;
@@ -16,31 +19,23 @@ public class SeanceBean {
     @ManagedProperty(value = "#{sessionBean}")
     private SessionBean sessionBean;
 
-    private List<Seance> seances = new ArrayList<>();
+    private DiseaseDAO diseaseDAO = new DiseaseDAOImpl();
 
+    private List<Seance> seances = new ArrayList<>();
     private Seance selectedSeance = new Seance();
 
-    @PostConstruct
-    public void init() {
-        /* TODO: get seances by role */
-//        users = userDAO.getUserByRole(Byte.valueOf("0"));
-
-        Seance seance = new Seance();
-        seance.setDescription("Осмотр (17.02.2019");
-
-        seances.add(seance);
-        seances.add(seance);
-        seances.add(seance);
-        seances.add(seance);
-        seances.add(seance);
-        seances.add(seance);
-        seances.add(seance);
-
-    }
 
     public String showSelectedSeance() {
         sessionBean.setSelectedSeance(selectedSeance);
         return "success";
+    }
+
+    @PostConstruct
+    public void init() {
+        Disease disease= diseaseDAO.getDiseaseById(1);
+        sessionBean.setSelectedDisease(disease);
+
+        seances = diseaseDAO.getSeanceListByDisease(disease);
     }
 
     public SessionBean getSessionBean() {
