@@ -14,8 +14,42 @@
             <ui:define name="content">
                 <h:form>
 
+                    <h:outputLabel value="#{sessionBean.selectedDisease.name}"/><br/>
+                    <h:outputLabel value="#{sessionBean.selectedDisease.description}"/><br/><br/>
 
+                    <p:panelGrid columns="2">
+                        <p:dataGrid var="seance" value="#{seanceBean.seances}" columns="1" layout="grid"
+                                    rows="5" paginator="true"
+                                    paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink}
+                                                {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
 
+                            <f:facet name="header">
+                                Seances
+                            </f:facet>
+
+                            <h:panelGrid columns="2">
+                                <h:outputText value="#{seance.description}"/>
+                                <p:commandButton value="Show" action="#{seanceBean.showSelectedSeance}">
+                                    <f:setPropertyActionListener target="#{seanceBean.selectedSeance}" value="#{seance}" />
+                                </p:commandButton>
+                            </h:panelGrid>
+                        </p:dataGrid>
+
+                        <p:panelGrid columns="1">
+                            <f:facet name="header">
+                                Search criteria
+                            </f:facet>
+
+                            <h:outputLabel value="Date" />
+                            <p:inputText value="17.12.2018" />
+                            <h:outputLabel value="Description" />
+                            <p:inputText value="Осмотр" />
+                            <p:commandButton value="Search"/>
+                        </p:panelGrid>
+                    </p:panelGrid>
+
+                    <br/>
+                    <h:outputLabel value="#{sessionBean.selectedSeance.description}"/>
 
                 </h:form>
             </ui:define>

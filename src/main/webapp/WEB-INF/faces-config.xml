@@ -98,7 +98,7 @@
         <!-- LINK: Patient page link -->
         <navigation-case>
             <from-outcome>patient</from-outcome>
-            <to-view-id>/patient.xhtml</to-view-id>
+            <to-view-id>/user.xhtml</to-view-id>
         </navigation-case>
 
         <!-- LINK: Disease page link -->
@@ -115,9 +115,16 @@
     </navigation-rule>
 
 
-    <!-- Patient page -->
+    <!-- User page -->
     <navigation-rule>
-        <from-view-id>/authorization.xhtml</from-view-id>
+        <from-view-id>/user.xhtml</from-view-id>
+
+        <!-- ACTION: Show user's diseases -->
+        <navigation-case>
+            <from-action>#{userBean.showSelectedUser}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/disease.xhtml</to-view-id>
+        </navigation-case>
 
         <!-- LINK: Authorization page link -->
         <navigation-case>
@@ -147,7 +154,14 @@
 
     <!-- Disease page -->
     <navigation-rule>
-        <from-view-id>/authorization.xhtml</from-view-id>
+        <from-view-id>/disease.xhtml</from-view-id>
+
+        <!-- ACTION: Show user's diseases -->
+        <navigation-case>
+            <from-action>#{diseaseBean.showSelectedDisease}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/seance.xhtml</to-view-id>
+        </navigation-case>
 
         <!-- LINK: Authorization page link -->
         <navigation-case>
@@ -155,10 +169,10 @@
             <to-view-id>/authorization.xhtml</to-view-id>
         </navigation-case>
 
-        <!-- LINK: Patient page link -->
+        <!-- LINK: User page link -->
         <navigation-case>
-            <from-outcome>patient</from-outcome>
-            <to-view-id>/patient.xhtml</to-view-id>
+            <from-outcome>user</from-outcome>
+            <to-view-id>/user.xhtml</to-view-id>
         </navigation-case>
 
         <!-- LINK: Settings page link -->
@@ -177,7 +191,14 @@
 
     <!-- Seance page-->
     <navigation-rule>
-        <from-view-id>/authorization.xhtml</from-view-id>
+        <from-view-id>/seance.xhtml</from-view-id>
+
+        <!-- ACTION: Show user's diseases -->
+        <navigation-case>
+            <from-action>#{seanceBean.showSelectedSeance}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/seance.xhtml</to-view-id>
+        </navigation-case>
 
         <!-- LINK: Authorization page link -->
         <navigation-case>
@@ -185,10 +206,10 @@
             <to-view-id>/authorization.xhtml</to-view-id>
         </navigation-case>
 
-        <!-- LINK: Patient page link -->
+        <!-- LINK: User page link -->
         <navigation-case>
-            <from-outcome>patient</from-outcome>
-            <to-view-id>/patient.xhtml</to-view-id>
+            <from-outcome>user</from-outcome>
+            <to-view-id>/user.xhtml</to-view-id>
         </navigation-case>
 
         <!-- LINK: Disease page link -->

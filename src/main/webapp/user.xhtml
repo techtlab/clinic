@@ -14,24 +14,20 @@
             <ui:define name="content">
                 <h:form>
 
-                    <h:outputLabel value="#{sessionBean.selectedUser.name}"/><br/>
-                    <h:outputLabel value="#{sessionBean.selectedUser.phone}"/><br/>
-                    <h:outputLabel value="#{sessionBean.selectedUser.address}"/><br/><br/>
-
                     <p:panelGrid columns="2">
-                        <p:dataGrid var="disease" value="#{diseaseBean.diseases}" columns="1" layout="grid"
+                        <p:dataGrid var="user" value="#{userBean.users}" columns="1" layout="grid"
                                     rows="5" paginator="true"
                                     paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink}
                                                 {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
 
                             <f:facet name="header">
-                                Diseases
+                                Users
                             </f:facet>
 
                             <h:panelGrid columns="2">
-                                <h:outputText value="#{disease.name}"/>
-                                <p:commandButton value="Show" action="#{diseaseBean.showSelectedDisease}">
-                                    <f:setPropertyActionListener target="#{diseaseBean.selectedDisease}" value="#{disease}" />
+                                <h:outputText value="#{user.name}"/>
+                                <p:commandButton value="Show" action="#{userBean.showSelectedUser}">
+                                    <f:setPropertyActionListener target="#{userBean.selectedUser}" value="#{user}" />
                                 </p:commandButton>
                             </h:panelGrid>
                         </p:dataGrid>
@@ -42,12 +38,13 @@
                             </f:facet>
 
                             <h:outputLabel value="Name" />
-                            <p:inputText value="ОРВИ" />
-                            <h:outputLabel value="Description" />
-                            <p:inputText value="Кашель" />
+                            <p:inputText value="Иван" />
+                            <h:outputLabel value="Address" />
+                            <p:inputText value="Гродно" />
                             <p:commandButton value="Search"/>
                         </p:panelGrid>
                     </p:panelGrid>
+
 
                 </h:form>
             </ui:define>
