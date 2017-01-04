@@ -32,11 +32,7 @@ public class DiseaseBean {
 
     @PostConstruct
     public void init() {
-
-        User user = userDAO.getUserById(3);
-        sessionBean.setSelectedUser(user);
-
-        diseases = userDAO.getDiseaseListByUser(user);
+        diseases = userDAO.getDiseaseListByUser(sessionBean.getSelectedUser());
     }
 
     public SessionBean getSessionBean() {

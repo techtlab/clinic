@@ -32,10 +32,7 @@ public class SeanceBean {
 
     @PostConstruct
     public void init() {
-        Disease disease= diseaseDAO.getDiseaseById(1);
-        sessionBean.setSelectedDisease(disease);
-
-        seances = diseaseDAO.getSeanceListByDisease(disease);
+        seances = diseaseDAO.getSeanceListByDisease(sessionBean.getSelectedDisease());
     }
 
     public SessionBean getSessionBean() {
