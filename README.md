@@ -1,9 +1,3 @@
-# Project name is Clinic.
+# Clinic.
 
-Tools used:
-Java 8
-Jetty
-Mysql
-Log4j2
-JUnit 5
-PrimeFaces
+Java, JSF, PrimeFaces, MyBatis, JUnit, Mysql, Jetty
