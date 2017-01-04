@@ -4,7 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <h:head>
     </h:head>
@@ -12,8 +13,18 @@
     <h:body>
 
         <ui:composition>
-            <h:outputLabel value="Header"/>
-            <br/><br/>
+            <p:link outcome="authorization" value="Authorization"/>
+            <p:spacer width="10" height="10" />
+            <p:link outcome="registration" value="Registration"/>
+            <p:spacer width="10" height="10" />
+            <p:link outcome="user" value="User"/>
+            <p:spacer width="10" height="10" />
+            <p:link outcome="disease" value="Disease"/>
+            <p:spacer width="10" height="10" />
+            <p:link outcome="seance" value="Seance"/>
+            <p:spacer width="10" height="10" />
+            <p:link outcome="settings" value="Settings"/>
+            <p:separator/>
         </ui:composition>
 
     </h:body>
