@@ -7,7 +7,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Clinic</title>
+        <title>#{msg['title.label']}</title>
     </h:head>
     <h:body>
         <ui:composition template="template/layout.xhtml">
@@ -21,7 +21,7 @@
                                                 {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
 
                             <f:facet name="header">
-                                Users
+                                #{msg['users.tableHeader']}
                             </f:facet>
 
                             <p:panelGrid columns="2" layout="grid">
@@ -30,7 +30,7 @@
                                 </p:column>
 
                                 <p:column>
-                                    <p:commandButton value="Show" action="#{userBean.showSelectedUser}">
+                                    <p:commandButton value="#{msg['show.button']}" action="#{userBean.showSelectedUser}">
                                         <f:setPropertyActionListener target="#{userBean.selectedUser}" value="#{user}" />
                                     </p:commandButton>
                                 </p:column>
@@ -40,14 +40,14 @@
 
                         <p:panelGrid columns="1">
                             <f:facet name="header">
-                                Search criteria
+                                #{msg['searchCriteria.tableHeader']}
                             </f:facet>
 
-                            <h:outputLabel value="Name" />
+                            <h:outputLabel value="#{msg['name.label']}" />
                             <p:inputText value="Иван" />
-                            <h:outputLabel value="Address" />
+                            <h:outputLabel value="#{msg['address.label']}" />
                             <p:inputText value="Гродно" />
-                            <p:commandButton value="Search"/>
+                            <p:commandButton value="#{msg['search.button']}"/>
                         </p:panelGrid>
                     </p:panelGrid>
 

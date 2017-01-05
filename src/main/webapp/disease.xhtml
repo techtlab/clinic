@@ -7,7 +7,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Clinic</title>
+        <title>#{msg['title.label']}</title>
     </h:head>
     <h:body>
         <ui:composition template="template/layout.xhtml">
@@ -15,11 +15,11 @@
                 <h:form>
 
                     <p:panelGrid columns="2">
-                        <h:outputText value="Name"/>
+                        <h:outputText value="#{msg['name.label']}"/>
                         <h:outputText value="#{sessionBean.selectedUser.name}"/>
-                        <h:outputText value="Phone"/>
+                        <h:outputText value="#{msg['phone.label']}"/>
                         <h:outputText value="#{sessionBean.selectedUser.phone}"/>
-                        <h:outputText value="Address"/>
+                        <h:outputText value="#{msg['address.label']}"/>
                         <h:outputText value="#{sessionBean.selectedUser.address}"/>
                     </p:panelGrid>
                     <br/>
@@ -31,7 +31,7 @@
                                                 {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
 
                             <f:facet name="header">
-                                Diseases
+                                #{msg['diseases.tableHeader']}
                             </f:facet>
 
                             <p:panelGrid columns="2" layout="grid">
@@ -40,7 +40,7 @@
                                 </p:column>
 
                                 <p:column>
-                                    <p:commandButton value="Show" action="#{diseaseBean.showSelectedDisease}">
+                                    <p:commandButton value="#{msg['show.button']}" action="#{diseaseBean.showSelectedDisease}">
                                         <f:setPropertyActionListener target="#{diseaseBean.selectedDisease}" value="#{disease}" />
                                     </p:commandButton>
                                 </p:column>
@@ -50,14 +50,14 @@
 
                         <p:panelGrid columns="1">
                             <f:facet name="header">
-                                Search criteria
+                                #{msg['searchCriteria.tableHeader']}
                             </f:facet>
 
-                            <h:outputLabel value="Name" />
+                            <h:outputLabel value="#{msg['name.label']}" />
                             <p:inputText value="ОРВИ" />
-                            <h:outputLabel value="Description" />
+                            <h:outputLabel value="#{msg['description.label']}" />
                             <p:inputText value="Кашель" />
-                            <p:commandButton value="Search"/>
+                            <p:commandButton value="#{msg['search.button']}"/>
                         </p:panelGrid>
                     </p:panelGrid>
 

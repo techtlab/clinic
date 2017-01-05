@@ -7,7 +7,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Clinic</title>
+        <title>#{msg['title.label']}</title>
     </h:head>
     <h:body>
         <ui:composition template="template/layout.xhtml">
@@ -15,9 +15,9 @@
                 <h:form>
 
                     <p:panelGrid columns="2">
-                        <h:outputText value="Name"/>
+                        <h:outputText value="#{msg['name.label']}"/>
                         <h:outputText value="#{sessionBean.selectedDisease.name}"/>
-                        <h:outputText value="Description"/>
+                        <h:outputText value="#{msg['description.label']}"/>
                         <h:outputText value="#{sessionBean.selectedDisease.description}"/>
                     </p:panelGrid>
                     <br/>
@@ -29,7 +29,7 @@
                                                 {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
 
                             <f:facet name="header">
-                                Seances
+                                #{msg['seances.tableHeader']}
                             </f:facet>
 
                             <p:panelGrid columns="2" layout="grid">
@@ -38,7 +38,7 @@
                                 </p:column>
 
                                 <p:column>
-                                    <p:commandButton value="Show" action="#{seanceBean.showSelectedSeance}">
+                                    <p:commandButton value="#{msg['show.button']}" action="#{seanceBean.showSelectedSeance}">
                                         <f:setPropertyActionListener target="#{seanceBean.selectedSeance}" value="#{seance}" />
                                     </p:commandButton>
                                 </p:column>
@@ -48,14 +48,14 @@
 
                         <p:panelGrid columns="1">
                             <f:facet name="header">
-                                Search criteria
+                                #{msg['searchCriteria.tableHeader']}
                             </f:facet>
 
-                            <h:outputLabel value="Date" />
+                            <h:outputLabel value="#{msg['date.label']}" />
                             <p:inputText value="17.12.2018" />
-                            <h:outputLabel value="Description" />
+                            <h:outputLabel value="#{msg['description.label']}" />
                             <p:inputText value="Осмотр" />
-                            <p:commandButton value="Search"/>
+                            <p:commandButton value="#{msg['search.button']}"/>
                         </p:panelGrid>
                     </p:panelGrid>
 

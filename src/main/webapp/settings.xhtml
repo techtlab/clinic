@@ -7,7 +7,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Clinic</title>
+        <title>#{msg['title.label']}</title>
     </h:head>
     <h:body>
         <ui:composition template="template/layout.xhtml">
@@ -15,31 +15,31 @@
                 <h:form>
 
 
-                    <h:outputLabel value="Settings page"/>
+                    <h:outputLabel value="#{msg['settingsPage.label']}"/>
                     <br/><br/>
 
                     <h:panelGrid columns="2">
 
-                        <h:outputLabel value="Login"/>
+                        <h:outputLabel value="#{msg['login.label']}"/>
                         <p:inputText value="#{sessionBean.currentUser.login}"/>
 
-                        <h:outputLabel value="Password"/>
+                        <h:outputLabel value="#{msg['password.label']}"/>
                         <p:password value="#{sessionBean.currentUser.password}"/>
 
-                        <h:outputLabel value="Name"/>
+                        <h:outputLabel value="#{msg['name.label']}"/>
                         <p:inputText value="#{sessionBean.currentUser.name}"/>
 
-                        <h:outputLabel value="Phone"/>
+                        <h:outputLabel value="#{msg['phone.label']}"/>
                         <p:inputText value="#{sessionBean.currentUser.phone}"/>
 
-                        <h:outputLabel value="Address"/>
+                        <h:outputLabel value="#{msg['address.label']}"/>
                         <p:inputText value="#{sessionBean.currentUser.address}"/>
 
                     </h:panelGrid>
 
                     <h:panelGrid columns="2">
-                        <p:commandButton value="Delete account" action="#{settingsBean.deleteUser}"/>
-                        <p:commandButton value="Update settings" action="#{settingsBean.updateUser}"/>
+                        <p:commandButton value="#{msg['deleteAccount.button']}" action="#{settingsBean.deleteUser}"/>
+                        <p:commandButton value="#{msg['updateSettings.button']}" action="#{settingsBean.updateUser}"/>
                     </h:panelGrid>
 
 

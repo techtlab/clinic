@@ -6,7 +6,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Clinic</title>
+        <title>#{msg['title.label']}</title>
     </h:head>
     <h:body>
         <ui:composition template="template/layout.xhtml">
@@ -14,23 +14,23 @@
                 <h:form>
 
 
-                    <h:outputLabel value="Authorization page"/>
+                    <h:outputLabel value="#{msg['authorizationPage.label']}"/>
                     <br/><br/>
 
                     <h:panelGrid columns="2">
 
-                        <h:outputLabel value="Login" />
+                        <h:outputLabel value="#{msg['login.label']}" />
                         <p:inputText value="#{authorizationBean.login}" />
 
-                        <h:outputLabel value="Password" />
+                        <h:outputLabel value="#{msg['password.label']}" />
                         <p:password value="#{authorizationBean.password}" />
 
-                        <p:commandButton value="Login" action="#{authorizationBean.authorization}" />
+                        <p:commandButton value="#{msg['login.button']}" action="#{authorizationBean.authorization}" />
 
                     </h:panelGrid>
 
                     <br/>
-                    <p:link outcome="registration" value="Registration"/>
+                    <p:link outcome="registration" value="#{msg['registration.link']}"/>
 
 
                 </h:form>

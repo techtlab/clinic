@@ -13,17 +13,23 @@
     <h:body>
 
         <ui:composition>
-            <p:link outcome="authorization" value="Authorization"/>
+            <p:link outcome="authorization" value="#{msg['authorization.link']}"/>
             <p:spacer width="10" height="10" />
-            <p:link outcome="registration" value="Registration"/>
+            <p:link outcome="registration" value="#{msg['registration.link']}"/>
             <p:spacer width="10" height="10" />
-            <p:link outcome="user" value="User"/>
+            <p:link outcome="user" value="#{msg['user.link']}"/>
             <p:spacer width="10" height="10" />
-            <p:link outcome="disease" value="Disease"/>
+            <p:link outcome="disease" value="#{msg['disease.link']}"/>
             <p:spacer width="10" height="10" />
-            <p:link outcome="seance" value="Seance"/>
+            <p:link outcome="seance" value="#{msg['seance.link']}"/>
             <p:spacer width="10" height="10" />
-            <p:link outcome="settings" value="Settings"/>
+            <p:link outcome="settings" value="#{msg['settings.link']}"/>
+            <p:spacer width="10" height="10" />
+            <h:selectOneMenu value="#{localeBean.localeCode}" onchange="submit()"
+                             valueChangeListener="#{localeBean.countryLocaleCodeChanged}">
+                <f:selectItems value="#{localeBean.countriesInMap}" />
+            </h:selectOneMenu>
+
             <p:separator/>
         </ui:composition>
 

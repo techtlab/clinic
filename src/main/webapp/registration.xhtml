@@ -7,7 +7,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Clinic</title>
+        <title>#{msg['title.label']}</title>
     </h:head>
     <h:body>
         <ui:composition template="template/layout.xhtml">
@@ -15,32 +15,32 @@
                 <h:form>
 
 
-                    <h:outputLabel value="Registration page"/>
+                    <h:outputLabel value="#{msg['registrationPage.label']}"/>
                     <br/><br/>
 
                     <h:panelGrid columns="2">
 
-                        <h:outputLabel value="Login"/>
+                        <h:outputLabel value="#{msg['login.label']}"/>
                         <p:inputText value="#{registrationBean.user.login}"/>
 
-                        <h:outputLabel value="Password"/>
+                        <h:outputLabel value="#{msg['password.label']}"/>
                         <p:password value="#{registrationBean.user.password}"/>
 
-                        <h:outputLabel value="Name"/>
+                        <h:outputLabel value="#{msg['name.label']}"/>
                         <p:inputText value="#{registrationBean.user.name}"/>
 
-                        <h:outputLabel value="Phone"/>
+                        <h:outputLabel value="#{msg['phone.label']}"/>
                         <p:inputText value="#{registrationBean.user.phone}"/>
 
-                        <h:outputLabel value="Address"/>
+                        <h:outputLabel value="#{msg['address.label']}"/>
                         <p:inputText value="#{registrationBean.user.address}"/>
 
-                        <p:commandButton value="Registration" action="#{registrationBean.registration}"/>
+                        <p:commandButton value="#{msg['registration.button']}" action="#{registrationBean.registration}"/>
 
                     </h:panelGrid>
 
                     <br/>
-                    <p:link outcome="authorization" value="Login"/>
+                    <p:link outcome="authorization" value="#{msg['login.link']}"/>
 
 
                 </h:form>
