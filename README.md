@@ -1,3 +1,3 @@
 # Clinic
 
-Java, JSF, PrimeFaces, MyBatis, JUnit, Log4j, Mysql, Jetty
+Java, JSF, PrimeFaces, MyBatis, JUnit, Log4j, MySQL, Jetty
