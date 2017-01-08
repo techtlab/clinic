@@ -3,6 +3,7 @@ package com.clinic.bean;
 import com.clinic.dao.UserDAO;
 import com.clinic.dao.impl.UserDAOImpl;
 
+import org.apache.log4j.Logger;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
@@ -10,6 +11,8 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean(name = "authorizationBean")
 @SessionScoped
 public class AuthorizationBean {
+
+    private static final Logger logger = Logger.getLogger(AuthorizationBean.class);
 
     @ManagedProperty(value = "#{sessionBean}")
     private SessionBean sessionBean;
@@ -27,6 +30,11 @@ public class AuthorizationBean {
     * */
 
     public String authorization() {
+
+        if(logger.isInfoEnabled()){
+            logger.info("Authorization is executed!");
+        }
+
         try {
             sessionBean.setCurrentUser(userDAO.getUserByLoginAndPassword(login, password));
         } catch (Exception e) {

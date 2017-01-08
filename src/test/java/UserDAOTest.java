@@ -34,13 +34,13 @@ public class UserDAOTest {
         Assert.assertEquals(user.getPassword(), "123");
     }
 
-    @Test(dependsOnMethods = {"testGetUserById"})
+    /*@Test(dependsOnMethods = {"testGetUserById"})
     public void testGetUserByRole() {
         user = userDAO.getUserByRole(user.getRole());
         Assert.assertNotNull(user);
         Assert.assertEquals(user.getLogin(), "MarkStar");
         Assert.assertEquals(user.getPassword(), "123");
-    }
+    }*/
 
     @Test(dependsOnMethods = {"testGetUserByRole"})
     public void testUpdateUserInfoByLogin() {
