@@ -3,6 +3,7 @@ package com.clinic.bean;
 import com.clinic.dao.UserDAO;
 import com.clinic.dao.impl.UserDAOImpl;
 import com.clinic.domain.User;
+import org.apache.log4j.Logger;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -15,32 +16,30 @@ public class RegistrationBean {
     @ManagedProperty(value = "#{sessionBean}")
     private SessionBean sessionBean;
 
-    private User user = new User();
-
     private UserDAO userDAO = new UserDAOImpl();
 
+    private User user = new User();
+
+    private static final Logger logger = Logger.getLogger(RegistrationBean.class);
 
     /*
-    * REGISTRATION
-    * Save user.
-    * Generate exception.
-    * Generate message.
+    * REGISTRATION. ADD USER
     * */
 
     public String registration() {
         try {
-            /* TODO: change to addUser(user) */
             userDAO.addNewUser(user.getLogin(), user.getPassword(), user.getRole(),
                     user.getName(), user.getPhone(), user.getAddress());
             sessionBean.setCurrentUser(user);
         } catch (Exception e) {
-            /* TODO: generate exception */
+            logger.info("registration " + e.getMessage());
             return "fail";
         }
-        /* TODO: generate message */
         user = new User();
         return "success";
     }
+
+
 
     public SessionBean getSessionBean() {
         return sessionBean;

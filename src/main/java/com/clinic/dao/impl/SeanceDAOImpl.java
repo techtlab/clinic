@@ -12,56 +12,30 @@ import java.util.List;
 
 public class SeanceDAOImpl implements SeanceDAO {
 
+    private SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
+    private SeanceMapper seanceMapper = sqlSession.getMapper(SeanceMapper.class);
+
+
     public Seance getSeanceById(int id) {
-        SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
-        try {
-            SeanceMapper seanceMapper = sqlSession.getMapper(SeanceMapper.class);
-            return seanceMapper.getSeanceById(id);
-        } finally {
-            sqlSession.close();
-        }
+        return seanceMapper.getSeanceById(id);
     }
 
     public void updateSeance(Date date, String description, int id) {
-        SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
-        try {
-            SeanceMapper seanceMapper = sqlSession.getMapper(SeanceMapper.class);
-            seanceMapper.updateSeance(date, description, id);
-            sqlSession.commit();
-        } finally {
-            sqlSession.close();
-        }
+        seanceMapper.updateSeance(date, description, id);
+        sqlSession.commit();
     }
 
     public void deleteSeance(int id) {
-        SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
-        try {
-            SeanceMapper seanceMapper = sqlSession.getMapper(SeanceMapper.class);
-            seanceMapper.deleteSeance(id);
-            sqlSession.commit();
-        } finally {
-            sqlSession.close();
-        }
+        seanceMapper.deleteSeance(id);
+        sqlSession.commit();
     }
 
     public void addSeance(Date date, String description, Disease disease) {
-        SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
-        try {
-            SeanceMapper seanceMapper = sqlSession.getMapper(SeanceMapper.class);
-            seanceMapper.addSeance(date, description, disease.getId());
-            sqlSession.commit();
-        } finally {
-            sqlSession.close();
-        }
+        seanceMapper.addSeance(date, description, disease.getId());
+        sqlSession.commit();
     }
 
     public List<Seance> getSeanceListByDisease(Disease disease) {
-        SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
-        try {
-            SeanceMapper seanceMapper = sqlSession.getMapper(SeanceMapper.class);
-            return seanceMapper.getSeanceListByDiseaseId(disease.getId());
-        } finally {
-            sqlSession.close();
-        }
+        return seanceMapper.getSeanceListByDiseaseId(disease.getId());
     }
 }

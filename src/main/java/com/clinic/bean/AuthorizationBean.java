@@ -12,38 +12,32 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class AuthorizationBean {
 
-    private static final Logger logger = Logger.getLogger(AuthorizationBean.class);
-
     @ManagedProperty(value = "#{sessionBean}")
     private SessionBean sessionBean;
+
+    private UserDAO userDAO = new UserDAOImpl();
 
     private String login;
     private String password;
 
-    private UserDAO userDAO = new UserDAOImpl();
-
+    private static final Logger logger = Logger.getLogger(AuthorizationBean.class);
 
     /*
-    * AUTHORIZATION
-    * Get user by login, password.
-    * Generate exception.
+    * AUTHORIZATION. GET USER BY LOGIN-PASSWORD
     * */
 
     public String authorization() {
-
-        if(logger.isInfoEnabled()){
-            logger.info("Authorization is executed!");
-        }
-
         try {
             sessionBean.setCurrentUser(userDAO.getUserByLoginAndPassword(login, password));
         } catch (Exception e) {
-            /* TODO: generate exception */
+            logger.info("authorization " + e.getMessage());
             return "fail";
         }
         login = password = "";
         return "success";
     }
+
+
 
     public String getLogin() {
         return login;

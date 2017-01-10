@@ -20,7 +20,6 @@ public class LocaleBean {
         countries.put("English", Locale.ENGLISH);
     }
 
-
     public void countryLocaleCodeChanged(ValueChangeEvent e){
         String newLocaleValue = e.getNewValue().toString();
 
@@ -43,5 +42,4 @@ public class LocaleBean {
     public void setLocaleCode(String localeCode) {
         this.localeCode = localeCode;
     }
-
 }

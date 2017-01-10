@@ -225,6 +225,8 @@
         </navigation-case>
     </navigation-rule>
 
+
+    <!-- Locale -->
     <application>
         <locale-config>
             <default-locale>en</default-locale>

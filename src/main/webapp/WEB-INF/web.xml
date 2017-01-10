@@ -6,13 +6,14 @@
 
 	<display-name>full-stack-advanced</display-name>
 
-	<listener>
-		<listener-class>com.sun.faces.config.ConfigureListener</listener-class>
-	</listener>
-
 	<welcome-file-list>
 		<welcome-file>welcome.xhtml</welcome-file>
 	</welcome-file-list>
+
+	<!-- Spring -->
+	<listener>
+		<listener-class>com.sun.faces.config.ConfigureListener</listener-class>
+	</listener>
 
 	<!-- Define the JSF servlet (manages the request processing lifecycle
         forJavaServer) -->
@@ -29,7 +30,6 @@
 	</servlet-mapping>
 
 	<!-- PrimeFaces theme -->
-
 	<context-param>
 		<param-name>primefaces.THEME</param-name>
 		<param-value>cupertino</param-value>

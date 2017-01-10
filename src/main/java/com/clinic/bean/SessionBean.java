@@ -12,12 +12,12 @@ import javax.faces.bean.SessionScoped;
 public class SessionBean {
 
     private User currentUser = new User();
-
     private User selectedUser = new User();
 
     private Disease selectedDisease = new Disease();
-
     private Seance selectedSeance = new Seance();
+
+
 
     public User getCurrentUser() {
         return currentUser;

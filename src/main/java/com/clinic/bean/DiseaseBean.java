@@ -3,6 +3,7 @@ package com.clinic.bean;
 import com.clinic.dao.DiseaseDAO;
 import com.clinic.dao.impl.DiseaseDAOImpl;
 import com.clinic.domain.Disease;
+import org.apache.log4j.Logger;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -23,16 +24,27 @@ public class DiseaseBean {
     private List<Disease> diseases = new ArrayList<>();
     private Disease selectedDisease = new Disease();
 
+    private static final Logger logger = Logger.getLogger(DiseaseBean.class);
+
+    /*
+    * SHOW SELECTED DISEASE
+    * */
 
     public String showSelectedDisease() {
         sessionBean.setSelectedDisease(selectedDisease);
         return "success";
     }
 
+    /*
+    * GET DISEASE LIST BY SELECTED USER. POST CONSTRUCT
+    * */
+
     @PostConstruct
     public void init() {
         diseases = diseaseDAO.getDiseaseListByUser(sessionBean.getSelectedUser());
     }
+
+
 
     public SessionBean getSessionBean() {
         return sessionBean;

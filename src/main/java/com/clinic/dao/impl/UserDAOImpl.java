@@ -10,76 +10,38 @@ import java.util.List;
 
 public class UserDAOImpl implements UserDAO {
 
+    private SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
+    private UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+
+
     public User getUserById(int id) {
-        SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
-        try {
-            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-            return userMapper.getUserById(id);
-        } finally {
-            sqlSession.close();
-        }
+        return userMapper.getUserById(id);
     }
 
     public List<User> getUsersByRole(byte role) {
-        SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
-        try {
-            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-            return userMapper.getUsersByRole(role);
-        } finally {
-            sqlSession.close();
-        }
+        return userMapper.getUsersByRole(role);
     }
 
     public User getUserByLoginAndPassword(String login, String password) {
-        SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
-        try {
-            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-            return userMapper.getUserByLoginAndPassword(login, password);
-        } finally {
-            sqlSession.close();
-        }
+        return userMapper.getUserByLoginAndPassword(login, password);
     }
 
     public User getUserByLogin(String login) {
-        SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
-        try {
-            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-            return userMapper.getUserByLogin(login);
-        } finally {
-            sqlSession.close();
-        }
+        return userMapper.getUserByLogin(login);
     }
 
     public void updateUserInfoByLogin(String login, String password, byte role, String name, String phone, String address) {
-        SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
-        try {
-            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-            userMapper.updateUserInfoByLogin(login, password, role, name, phone, address);
-            sqlSession.commit();
-        } finally {
-            sqlSession.close();
-        }
+        userMapper.updateUserInfoByLogin(login, password, role, name, phone, address);
+        sqlSession.commit();
     }
 
     public void addNewUser(String login, String password, byte role, String name, String phone, String address) {
-        SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
-        try {
-            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-            userMapper.addNewUser(login, password, role, name, phone, address);
-            sqlSession.commit();
-        } finally {
-            sqlSession.close();
-        }
+        userMapper.addNewUser(login, password, role, name, phone, address);
+        sqlSession.commit();
     }
 
     public void deleteUser(String login) {
-        SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
-        try {
-            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-            userMapper.deleteUser(login);
-            sqlSession.commit();
-        } finally {
-            sqlSession.close();
-        }
+        userMapper.deleteUser(login);
+        sqlSession.commit();
     }
 }

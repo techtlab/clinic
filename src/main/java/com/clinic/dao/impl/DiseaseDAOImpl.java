@@ -11,56 +11,30 @@ import java.util.List;
 
 public class DiseaseDAOImpl implements DiseaseDAO {
 
+    private SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
+    private DiseaseMapper diseaseMapper = sqlSession.getMapper(DiseaseMapper.class);
+
+
     public Disease getDiseaseById(int id) {
-        SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
-        try {
-            DiseaseMapper diseaseMapper = sqlSession.getMapper(DiseaseMapper.class);
-            return diseaseMapper.getDiseaseById(id);
-        } finally {
-            sqlSession.close();
-        }
+        return diseaseMapper.getDiseaseById(id);
     }
 
     public void updateDisease(String name, String description, int cured, int id) {
-        SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
-        try {
-            DiseaseMapper diseaseMapper = sqlSession.getMapper(DiseaseMapper.class);
-            diseaseMapper.updateDisease(name, description, cured, id);
-            sqlSession.commit();
-        } finally {
-            sqlSession.close();
-        }
+        diseaseMapper.updateDisease(name, description, cured, id);
+        sqlSession.commit();
     }
 
     public void deleteDisease(int id) {
-        SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
-        try {
-            DiseaseMapper diseaseMapper = sqlSession.getMapper(DiseaseMapper.class);
-            diseaseMapper.deleteDisease(id);
-            sqlSession.commit();
-        } finally {
-            sqlSession.close();
-        }
+        diseaseMapper.deleteDisease(id);
+        sqlSession.commit();
     }
 
     public void addDisease(String name, String description, int cured, User user) {
-        SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
-        try {
-            DiseaseMapper diseaseMapper = sqlSession.getMapper(DiseaseMapper.class);
-            diseaseMapper.addDisease(name, description, cured, user.getId());
-            sqlSession.commit();
-        } finally {
-            sqlSession.close();
-        }
+        diseaseMapper.addDisease(name, description, cured, user.getId());
+        sqlSession.commit();
     }
 
     public List<Disease> getDiseaseListByUser(User user) {
-        SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
-        try {
-            DiseaseMapper diseaseMapper = sqlSession.getMapper(DiseaseMapper.class);
-            return diseaseMapper.getDiseaseListByUserId(user.getId());
-        } finally {
-            sqlSession.close();
-        }
+        return diseaseMapper.getDiseaseListByUserId(user.getId());
     }
 }

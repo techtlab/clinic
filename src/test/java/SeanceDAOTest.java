@@ -62,5 +62,4 @@ public class SeanceDAOTest {
         Seance seance = seanceDAO.getSeanceById(this.seance.getId());
         Assert.assertNull(seance);
     }*/
-
 }

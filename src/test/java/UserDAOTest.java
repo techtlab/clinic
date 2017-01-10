@@ -9,7 +9,6 @@ public class UserDAOTest {
     /*private User user;
     private UserDAO userDAO = new UserDAOImpl();
 
-
     @Test
     public void testAddNewUser() {
         userDAO.addNewUser("MarkStar","123", (byte)0, "Mark de Volan", "43-54-23", "st.ra, ew, 4, 4");

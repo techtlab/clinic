@@ -3,6 +3,7 @@ package com.clinic.bean;
 import com.clinic.dao.UserDAO;
 import com.clinic.dao.impl.UserDAOImpl;
 import com.clinic.domain.User;
+import org.apache.log4j.Logger;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -18,22 +19,31 @@ public class UserBean {
     @ManagedProperty(value = "#{sessionBean}")
     private SessionBean sessionBean;
 
+    private UserDAO userDAO = new UserDAOImpl();
+
     private List<User> users = new ArrayList<>();
     private User selectedUser = new User();
 
-    private UserDAO userDAO = new UserDAOImpl();
+    private static final Logger logger = Logger.getLogger(UserBean.class);
 
-
+    /*
+    * SHOW SELECTED USER
+    * */
     public String showSelectedUser() {
         sessionBean.setSelectedUser(selectedUser);
         return "success";
     }
 
+    /*
+    * GET USERS BY ROLE(0). POST CONSTRUCT
+    * */
     @PostConstruct
     public void init() {
         byte patient = 0;
         users = userDAO.getUsersByRole(patient);
     }
+
+
 
     public User getSelectedUser() {
         return selectedUser;

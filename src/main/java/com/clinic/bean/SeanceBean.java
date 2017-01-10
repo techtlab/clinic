@@ -3,6 +3,7 @@ package com.clinic.bean;
 import com.clinic.dao.SeanceDAO;
 import com.clinic.dao.impl.SeanceDAOImpl;
 import com.clinic.domain.Seance;
+import org.apache.log4j.Logger;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -23,11 +24,20 @@ public class SeanceBean {
     private List<Seance> seances = new ArrayList<>();
     private Seance selectedSeance = new Seance();
 
+    private static final Logger logger = Logger.getLogger(SeanceBean.class);
+
+    /*
+    * SHOW SELECTED SEANCE
+    * */
 
     public String showSelectedSeance() {
         sessionBean.setSelectedSeance(selectedSeance);
         return "success";
     }
+
+    /*
+    * GET SEANCE BY SELECTED DISEASE. POST CONSTRUCT
+    * */
 
     @PostConstruct
     public void init() {

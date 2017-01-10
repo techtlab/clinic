@@ -5,8 +5,8 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.jubilantbassoon</groupId>
-    <artifactId>project</artifactId>
+    <groupId>com.porkcracklings</groupId>
+    <artifactId>clinic</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -100,19 +100,7 @@
             <version>${mybatis-spring.version}</version>
         </dependency>
 
-        <!-- Log4j2 -->
-
-        <!--<dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId>
-            <version>${log4j2.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-            <version>${log4j2.version}</version>
-        </dependency>-->
+        <!-- Log4j -->
 
         <dependency>
             <groupId>log4j</groupId>
@@ -233,7 +221,7 @@
         </plugins>
     </build>
 
-    <!-- Repository -->
+    <!-- PrimeFaces repository -->
 
     <repositories>
         <repository>

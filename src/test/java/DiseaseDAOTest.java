@@ -45,8 +45,6 @@ public class DiseaseDAOTest {
         Assert.assertNull(disease);
     }
 
-
-
     @Test
     public void testAddSeance() {
         Calendar calendar = Calendar.getInstance();
@@ -68,6 +66,5 @@ public class DiseaseDAOTest {
         List<Seance> seanceList = SeanceDAOImpl.getSeanceListByDiseaseId(1);
         Assert.assertNotNull(seanceList);
         Assert.assertNotEquals(seanceList.size(), 0);
-
     }*/
 }
