@@ -1,7 +1,7 @@
 import com.clinic.dao.DiseaseDAO;
 import com.clinic.dao.impl.DiseaseDAOImpl;
-import com.clinic.model.Disease;
-import com.clinic.model.Seance;
+import com.clinic.domain.Disease;
+import com.clinic.domain.Seance;
 import org.junit.Assert;
 import org.testng.annotations.Test;
 

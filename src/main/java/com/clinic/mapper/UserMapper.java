@@ -1,7 +1,7 @@
 package com.clinic.mapper;
 
-import com.clinic.model.Disease;
-import com.clinic.model.User;
+import com.clinic.domain.Disease;
+import com.clinic.domain.User;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.mapping.FetchType;
 

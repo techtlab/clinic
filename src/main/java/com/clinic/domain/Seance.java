@@ -1,4 +1,4 @@
-package com.clinic.model;
+package com.clinic.domain;
 
 import java.util.Date;
 

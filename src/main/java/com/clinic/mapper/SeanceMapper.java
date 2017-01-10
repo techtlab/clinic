@@ -1,6 +1,6 @@
 package com.clinic.mapper;
 
-import com.clinic.model.Seance;
+import com.clinic.domain.Seance;
 import org.apache.ibatis.annotations.*;
 
 import java.util.Date;

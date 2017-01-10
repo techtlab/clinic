@@ -1,8 +1,8 @@
 package com.clinic.bean;
 
-import com.clinic.model.Disease;
-import com.clinic.model.Seance;
-import com.clinic.model.User;
+import com.clinic.domain.Disease;
+import com.clinic.domain.Seance;
+import com.clinic.domain.User;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;

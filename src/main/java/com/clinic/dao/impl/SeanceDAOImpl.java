@@ -3,7 +3,7 @@ package com.clinic.dao.impl;
 import com.clinic.config.MyBatisUtil;
 import com.clinic.dao.SeanceDAO;
 import com.clinic.mapper.SeanceMapper;
-import com.clinic.model.Seance;
+import com.clinic.domain.Seance;
 import org.apache.ibatis.session.SqlSession;
 
 import java.util.Date;

@@ -1,6 +1,6 @@
 package com.clinic.dao;
 
-import com.clinic.model.Seance;
+import com.clinic.domain.Seance;
 
 import java.util.Date;
 

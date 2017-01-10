@@ -3,8 +3,8 @@ package com.clinic.dao.impl;
 import com.clinic.config.MyBatisUtil;
 import com.clinic.dao.UserDAO;
 import com.clinic.mapper.UserMapper;
-import com.clinic.model.Disease;
-import com.clinic.model.User;
+import com.clinic.domain.Disease;
+import com.clinic.domain.User;
 import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;

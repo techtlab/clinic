@@ -2,7 +2,7 @@ package com.clinic.bean;
 
 import com.clinic.dao.UserDAO;
 import com.clinic.dao.impl.UserDAOImpl;
-import com.clinic.model.User;
+import com.clinic.domain.User;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;

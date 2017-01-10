@@ -1,11 +1,8 @@
 import com.clinic.dao.UserDAO;
 import com.clinic.dao.impl.UserDAOImpl;
-import com.clinic.model.Disease;
-import com.clinic.model.User;
+import com.clinic.domain.User;
 import org.junit.Assert;
 import org.testng.annotations.Test;
-
-import java.util.List;
 
 public class UserDAOTest {
 

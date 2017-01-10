@@ -1,7 +1,7 @@
 package com.clinic.dao;
 
-import com.clinic.model.Disease;
-import com.clinic.model.User;
+import com.clinic.domain.Disease;
+import com.clinic.domain.User;
 
 import java.util.List;
 
