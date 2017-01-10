@@ -10,17 +10,17 @@ import java.util.List;
 
 public class DiseaseDAOTest {
 
-    DiseaseDAO diseaseDAO = new DiseaseDAOImpl();
+    /*DiseaseDAO diseaseDAO = new DiseaseDAOImpl();
 
     @Test
     public void testGetDiseaseById(){
         Disease disease = diseaseDAO.getDiseaseById(1);
-//        Assert.assertNotNull(disease);
-//        Assert.assertEquals(disease.getName(), "new");
-//        Assert.assertEquals(disease.getDescription(), "description");
-//        Assert.assertEquals(disease.getCured(), 1);
+        Assert.assertNotNull(disease);
+        Assert.assertEquals(disease.getName(), "new");
+        Assert.assertEquals(disease.getDescription(), "description");
+        Assert.assertEquals(disease.getCured(), 1);
 
-//        Assert.assertNotEquals(disease.getSeances().size(), 0);
+        Assert.assertNotEquals(disease.getSeances().size(), 0);
         System.out.println("size " + disease.getSeances().size());
         List<Seance> seances = diseaseDAO.getSeanceListByDisease(disease);
         System.out.println("size " + seances.size());
@@ -59,7 +59,7 @@ public class DiseaseDAOTest {
 
     @Test
     public void testGetSeanceListByDisease() {
-        /*Calendar calendar = Calendar.getInstance();
+        Calendar calendar = Calendar.getInstance();
         calendar.set(2017, Calendar.JANUARY, 1, 11, 12, 1);
 
         SeanceDAOImpl.addSeance(calendar.getTime(), "description", 1);
@@ -67,7 +67,7 @@ public class DiseaseDAOTest {
 
         List<Seance> seanceList = SeanceDAOImpl.getSeanceListByDiseaseId(1);
         Assert.assertNotNull(seanceList);
-        Assert.assertNotEquals(seanceList.size(), 0);*/
+        Assert.assertNotEquals(seanceList.size(), 0);
 
-    }
+    }*/
 }

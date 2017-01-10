@@ -25,10 +25,11 @@
             <p:spacer width="10" height="10" />
             <p:link outcome="settings" value="#{msg['settings.link']}"/>
             <p:spacer width="10" height="10" />
-            <h:selectOneMenu value="#{localeBean.localeCode}" onchange="submit()"
-                             valueChangeListener="#{localeBean.countryLocaleCodeChanged}">
-                <f:selectItems value="#{localeBean.countriesInMap}" />
-            </h:selectOneMenu>
+
+            <!--<h:selectOneMenu value="{localeBean.localeCode}" onchange="submit()"
+                             valueChangeListener="{localeBean.countryLocaleCodeChanged}">
+                <f:selectItems value="{localeBean.countriesInMap}" />
+            </h:selectOneMenu>-->
 
             <p:separator/>
         </ui:composition>

@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class UserDAOTest {
 
-    private User user;
+    /*private User user;
     private UserDAO userDAO = new UserDAOImpl();
 
 
@@ -31,13 +31,13 @@ public class UserDAOTest {
         Assert.assertEquals(user.getPassword(), "123");
     }
 
-    /*@Test(dependsOnMethods = {"testGetUserById"})
+    @Test(dependsOnMethods = {"testGetUserById"})
     public void testGetUserByRole() {
         user = userDAO.getUserByRole(user.getRole());
         Assert.assertNotNull(user);
         Assert.assertEquals(user.getLogin(), "MarkStar");
         Assert.assertEquals(user.getPassword(), "123");
-    }*/
+    }
 
     @Test(dependsOnMethods = {"testGetUserByRole"})
     public void testUpdateUserInfoByLogin() {
@@ -63,7 +63,7 @@ public class UserDAOTest {
 
     @Test(dependsOnMethods = {"testGetUserByLoginAndPassword"})
     public void testAddDisease(){
-        /*user = userDAO.getUserByLoginAndPassword("MarkStar", "123");
+        user = userDAO.getUserByLoginAndPassword("MarkStar", "123");
         Assert.assertNotNull(user);
 
         int beforeCount = user.getDiseases().size();
@@ -73,13 +73,13 @@ public class UserDAOTest {
         Assert.assertNotNull(user);
         int afterCount = user.getDiseases().size();
 
-        Assert.assertNotEquals(beforeCount, afterCount);*/
+        Assert.assertNotEquals(beforeCount, afterCount);
     }
 
     @Test(dependsOnMethods = {"testAddDisease"})
     public void testGetDiseaseListByUser(){
-        /*user = userDAO.getUserById(3);
+        user = userDAO.getUserById(3);
         List<Disease> diseaseList = userDAO.getDiseaseListByUser(user);
-        System.out.println("size " + diseaseList.size());*/
-    }
+        System.out.println("size " + diseaseList.size());
+    }*/
 }

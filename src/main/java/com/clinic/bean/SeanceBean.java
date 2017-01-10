@@ -1,7 +1,7 @@
 package com.clinic.bean;
 
-import com.clinic.dao.DiseaseDAO;
-import com.clinic.dao.impl.DiseaseDAOImpl;
+import com.clinic.dao.SeanceDAO;
+import com.clinic.dao.impl.SeanceDAOImpl;
 import com.clinic.domain.Seance;
 
 import javax.annotation.PostConstruct;
@@ -18,7 +18,7 @@ public class SeanceBean {
     @ManagedProperty(value = "#{sessionBean}")
     private SessionBean sessionBean;
 
-    private DiseaseDAO diseaseDAO = new DiseaseDAOImpl();
+    private SeanceDAO seanceDAO = new SeanceDAOImpl();
 
     private List<Seance> seances = new ArrayList<>();
     private Seance selectedSeance = new Seance();
@@ -31,7 +31,7 @@ public class SeanceBean {
 
     @PostConstruct
     public void init() {
-        seances = diseaseDAO.getSeanceListByDisease(sessionBean.getSelectedDisease());
+        seances = seanceDAO.getSeanceListByDisease(sessionBean.getSelectedDisease());
     }
 
     public SessionBean getSessionBean() {

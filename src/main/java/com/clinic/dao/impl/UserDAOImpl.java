@@ -3,7 +3,6 @@ package com.clinic.dao.impl;
 import com.clinic.config.MyBatisUtil;
 import com.clinic.dao.UserDAO;
 import com.clinic.mapper.UserMapper;
-import com.clinic.domain.Disease;
 import com.clinic.domain.User;
 import org.apache.ibatis.session.SqlSession;
 
@@ -79,27 +78,6 @@ public class UserDAOImpl implements UserDAO {
             UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
             userMapper.deleteUser(login);
             sqlSession.commit();
-        } finally {
-            sqlSession.close();
-        }
-    }
-
-    public void addDisease(String name, String description, int cured, User user) {
-        SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
-        try {
-            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-            userMapper.addDisease(name, description, cured, user.getId());
-            sqlSession.commit();
-        } finally {
-            sqlSession.close();
-        }
-    }
-
-    public List<Disease> getDiseaseListByUser(User user) {
-        SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
-        try {
-            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-            return userMapper.getDiseaseListByUserId(user.getId());
         } finally {
             sqlSession.close();
         }
