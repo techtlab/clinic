@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface DiseaseService {
 
-    public Disease getDiseaseById(int id);
-    public void updateDisease(String name, String description, int cured, int id);
-    public void deleteDisease(int id);
-    public void addDisease(String name, String description, int cured, User user);
-    public List<Disease> getDiseaseListByUser(User user);
+    Disease getDiseaseById(int id);
+    void updateDisease(String name, String description, int cured, int id);
+    void deleteDisease(int id);
+    void addDisease(String name, String description, int cured, User user);
+    List<Disease> getDiseaseListByUser(User user);
 }

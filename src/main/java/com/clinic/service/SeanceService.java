@@ -8,9 +8,9 @@ import java.util.List;
 
 public interface SeanceService {
 
-    public Seance getSeanceById(int id);
-    public void updateSeance(Date date, String description, int id);
-    public void deleteSeance(int id);
-    public void addSeance(Date date, String description, Disease disease);
-    public List<Seance> getSeanceListByDisease(Disease disease);
+    Seance getSeanceById(int id);
+    void updateSeance(Date date, String description, int id);
+    void deleteSeance(int id);
+    void addSeance(Date date, String description, Disease disease);
+    List<Seance> getSeanceListByDisease(Disease disease);
 }
