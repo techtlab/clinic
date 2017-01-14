@@ -1,5 +1,3 @@
-import com.clinic.dao.DiseaseDAO;
-import com.clinic.dao.impl.DiseaseDAOImpl;
 import com.clinic.domain.Disease;
 import com.clinic.domain.Seance;
 import org.junit.Assert;
@@ -10,7 +8,7 @@ import java.util.List;
 
 public class DiseaseDAOTest {
 
-    /*DiseaseDAO diseaseDAO = new DiseaseDAOImpl();
+    /*DiseaseService diseaseDAO = new DiseaseServiceImpl();
 
     @Test
     public void testGetDiseaseById(){
@@ -60,10 +58,10 @@ public class DiseaseDAOTest {
         Calendar calendar = Calendar.getInstance();
         calendar.set(2017, Calendar.JANUARY, 1, 11, 12, 1);
 
-        SeanceDAOImpl.addSeance(calendar.getTime(), "description", 1);
-        SeanceDAOImpl.addSeance(calendar.getTime(), "description", 1);
+        SeanceServiceImpl.addSeance(calendar.getTime(), "description", 1);
+        SeanceServiceImpl.addSeance(calendar.getTime(), "description", 1);
 
-        List<Seance> seanceList = SeanceDAOImpl.getSeanceListByDiseaseId(1);
+        List<Seance> seanceList = SeanceServiceImpl.getSeanceListByDiseaseId(1);
         Assert.assertNotNull(seanceList);
         Assert.assertNotEquals(seanceList.size(), 0);
     }*/

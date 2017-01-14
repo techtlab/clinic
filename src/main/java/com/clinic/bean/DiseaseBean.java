@@ -1,7 +1,7 @@
 package com.clinic.bean;
 
-import com.clinic.dao.DiseaseDAO;
-import com.clinic.dao.impl.DiseaseDAOImpl;
+import com.clinic.service.DiseaseService;
+import com.clinic.service.impl.DiseaseServiceImpl;
 import com.clinic.domain.Disease;
 import org.apache.log4j.Logger;
 
@@ -19,7 +19,7 @@ public class DiseaseBean {
     @ManagedProperty(value = "#{sessionBean}")
     private SessionBean sessionBean;
 
-    private DiseaseDAO diseaseDAO = new DiseaseDAOImpl();
+    private DiseaseService diseaseService = new DiseaseServiceImpl();
 
     private List<Disease> diseases = new ArrayList<>();
     private Disease selectedDisease = new Disease();
@@ -41,7 +41,7 @@ public class DiseaseBean {
 
     @PostConstruct
     public void init() {
-        diseases = diseaseDAO.getDiseaseListByUser(sessionBean.getSelectedUser());
+        diseases = diseaseService.getDiseaseListByUser(sessionBean.getSelectedUser());
     }
 
 

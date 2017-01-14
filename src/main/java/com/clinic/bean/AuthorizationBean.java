@@ -1,7 +1,7 @@
 package com.clinic.bean;
 
-import com.clinic.dao.UserDAO;
-import com.clinic.dao.impl.UserDAOImpl;
+import com.clinic.service.UserService;
+import com.clinic.service.impl.UserServiceImpl;
 
 import org.apache.log4j.Logger;
 import javax.faces.bean.ManagedBean;
@@ -15,7 +15,7 @@ public class AuthorizationBean {
     @ManagedProperty(value = "#{sessionBean}")
     private SessionBean sessionBean;
 
-    private UserDAO userDAO = new UserDAOImpl();
+    private UserService userService = new UserServiceImpl();
 
     private String login;
     private String password;
@@ -28,7 +28,7 @@ public class AuthorizationBean {
 
     public String authorization() {
         try {
-            sessionBean.setCurrentUser(userDAO.getUserByLoginAndPassword(login, password));
+            sessionBean.setCurrentUser(userService.getUserByLoginAndPassword(login, password));
         } catch (Exception e) {
             logger.info("authorization " + e.getMessage());
             return "fail";

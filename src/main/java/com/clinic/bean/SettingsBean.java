@@ -1,7 +1,7 @@
 package com.clinic.bean;
 
-import com.clinic.dao.UserDAO;
-import com.clinic.dao.impl.UserDAOImpl;
+import com.clinic.service.UserService;
+import com.clinic.service.impl.UserServiceImpl;
 import org.apache.log4j.Logger;
 
 import javax.faces.bean.ManagedBean;
@@ -15,7 +15,7 @@ public class SettingsBean {
     @ManagedProperty(value = "#{sessionBean}")
     private SessionBean sessionBean;
 
-    private UserDAO userDAO = new UserDAOImpl();
+    private UserService userService = new UserServiceImpl();
 
     private static final Logger logger = Logger.getLogger(SettingsBean.class);
 
@@ -24,7 +24,7 @@ public class SettingsBean {
     * */
     public String updateUser() {
         try {
-            userDAO.updateUserInfoByLogin(sessionBean.getCurrentUser().getLogin(), sessionBean.getCurrentUser().getPassword(),
+            userService.updateUserInfoByLogin(sessionBean.getCurrentUser().getLogin(), sessionBean.getCurrentUser().getPassword(),
                     sessionBean.getCurrentUser().getRole(), sessionBean.getCurrentUser().getName(),
                     sessionBean.getCurrentUser().getPhone(), sessionBean.getCurrentUser().getAddress());
         } catch (Exception e) {
@@ -39,7 +39,7 @@ public class SettingsBean {
     * */
     public String deleteUser() {
         try {
-            userDAO.deleteUser(sessionBean.getCurrentUser().getLogin());
+            userService.deleteUser(sessionBean.getCurrentUser().getLogin());
         } catch (Exception e) {
             logger.info("deleteUser " + e.getMessage());
             return "fail";

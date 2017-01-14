@@ -1,5 +1,3 @@
-import com.clinic.dao.UserDAO;
-import com.clinic.dao.impl.UserDAOImpl;
 import com.clinic.domain.User;
 import org.junit.Assert;
 import org.testng.annotations.Test;
@@ -7,7 +5,7 @@ import org.testng.annotations.Test;
 public class UserDAOTest {
 
     /*private User user;
-    private UserDAO userDAO = new UserDAOImpl();
+    private UserService userDAO = new UserServiceImpl();
 
     @Test
     public void testAddNewUser() {

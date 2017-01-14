@@ -1,7 +1,7 @@
 package com.clinic.bean;
 
-import com.clinic.dao.SeanceDAO;
-import com.clinic.dao.impl.SeanceDAOImpl;
+import com.clinic.service.SeanceService;
+import com.clinic.service.impl.SeanceServiceImpl;
 import com.clinic.domain.Seance;
 import org.apache.log4j.Logger;
 
@@ -19,7 +19,7 @@ public class SeanceBean {
     @ManagedProperty(value = "#{sessionBean}")
     private SessionBean sessionBean;
 
-    private SeanceDAO seanceDAO = new SeanceDAOImpl();
+    private SeanceService seanceService = new SeanceServiceImpl();
 
     private List<Seance> seances = new ArrayList<>();
     private Seance selectedSeance = new Seance();
@@ -41,7 +41,7 @@ public class SeanceBean {
 
     @PostConstruct
     public void init() {
-        seances = seanceDAO.getSeanceListByDisease(sessionBean.getSelectedDisease());
+        seances = seanceService.getSeanceListByDisease(sessionBean.getSelectedDisease());
     }
 
     public SessionBean getSessionBean() {

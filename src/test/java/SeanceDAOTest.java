@@ -1,9 +1,3 @@
-import com.clinic.dao.DiseaseDAO;
-import com.clinic.dao.SeanceDAO;
-import com.clinic.dao.UserDAO;
-import com.clinic.dao.impl.DiseaseDAOImpl;
-import com.clinic.dao.impl.SeanceDAOImpl;
-import com.clinic.dao.impl.UserDAOImpl;
 import com.clinic.domain.Disease;
 import com.clinic.domain.Seance;
 import com.clinic.domain.User;
@@ -16,9 +10,9 @@ import java.util.*;
 
 public class SeanceDAOTest {
 
-    /*SeanceDAO seanceDAO = new SeanceDAOImpl();
-    DiseaseDAO diseaseDAO = new DiseaseDAOImpl();
-    UserDAO userDAO = new UserDAOImpl();
+    /*SeanceService seanceDAO = new SeanceServiceImpl();
+    DiseaseService diseaseDAO = new DiseaseServiceImpl();
+    UserService userDAO = new UserServiceImpl();
 
     User user;
     Disease disease;

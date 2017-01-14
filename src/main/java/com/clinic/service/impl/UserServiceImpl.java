@@ -1,14 +1,14 @@
-package com.clinic.dao.impl;
+package com.clinic.service.impl;
 
 import com.clinic.config.MyBatisUtil;
-import com.clinic.dao.UserDAO;
 import com.clinic.mapper.UserMapper;
 import com.clinic.domain.User;
+import com.clinic.service.UserService;
 import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
 
-public class UserDAOImpl implements UserDAO {
+public class UserServiceImpl implements UserService {
 
     private SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
     private UserMapper userMapper = sqlSession.getMapper(UserMapper.class);

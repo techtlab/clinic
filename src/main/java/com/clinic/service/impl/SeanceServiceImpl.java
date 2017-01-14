@@ -1,16 +1,16 @@
-package com.clinic.dao.impl;
+package com.clinic.service.impl;
 
 import com.clinic.config.MyBatisUtil;
-import com.clinic.dao.SeanceDAO;
 import com.clinic.domain.Disease;
 import com.clinic.mapper.SeanceMapper;
 import com.clinic.domain.Seance;
+import com.clinic.service.SeanceService;
 import org.apache.ibatis.session.SqlSession;
 
 import java.util.Date;
 import java.util.List;
 
-public class SeanceDAOImpl implements SeanceDAO {
+public class SeanceServiceImpl implements SeanceService {
 
     private SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
     private SeanceMapper seanceMapper = sqlSession.getMapper(SeanceMapper.class);

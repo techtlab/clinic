@@ -1,7 +1,7 @@
 package com.clinic.bean;
 
-import com.clinic.dao.UserDAO;
-import com.clinic.dao.impl.UserDAOImpl;
+import com.clinic.service.UserService;
+import com.clinic.service.impl.UserServiceImpl;
 import com.clinic.domain.User;
 import org.apache.log4j.Logger;
 
@@ -16,7 +16,7 @@ public class RegistrationBean {
     @ManagedProperty(value = "#{sessionBean}")
     private SessionBean sessionBean;
 
-    private UserDAO userDAO = new UserDAOImpl();
+    private UserService userService = new UserServiceImpl();
 
     private User user = new User();
 
@@ -28,7 +28,7 @@ public class RegistrationBean {
 
     public String registration() {
         try {
-            userDAO.addNewUser(user.getLogin(), user.getPassword(), user.getRole(),
+            userService.addNewUser(user.getLogin(), user.getPassword(), user.getRole(),
                     user.getName(), user.getPhone(), user.getAddress());
             sessionBean.setCurrentUser(user);
         } catch (Exception e) {

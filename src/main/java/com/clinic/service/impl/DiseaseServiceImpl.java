@@ -1,15 +1,15 @@
-package com.clinic.dao.impl;
+package com.clinic.service.impl;
 
 import com.clinic.config.MyBatisUtil;
-import com.clinic.dao.DiseaseDAO;
 import com.clinic.domain.User;
 import com.clinic.mapper.DiseaseMapper;
 import com.clinic.domain.Disease;
+import com.clinic.service.DiseaseService;
 import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
 
-public class DiseaseDAOImpl implements DiseaseDAO {
+public class DiseaseServiceImpl implements DiseaseService {
 
     private SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
     private DiseaseMapper diseaseMapper = sqlSession.getMapper(DiseaseMapper.class);

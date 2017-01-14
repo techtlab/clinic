@@ -1,10 +1,10 @@
-package com.clinic.dao;
+package com.clinic.service;
 
 import com.clinic.domain.User;
 
 import java.util.List;
 
-public interface UserDAO {
+public interface UserService {
 
     public User getUserById(int id);
     public List<User> getUsersByRole(byte role);

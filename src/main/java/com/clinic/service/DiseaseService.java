@@ -1,11 +1,11 @@
-package com.clinic.dao;
+package com.clinic.service;
 
 import com.clinic.domain.Disease;
 import com.clinic.domain.User;
 
 import java.util.List;
 
-public interface DiseaseDAO {
+public interface DiseaseService {
 
     public Disease getDiseaseById(int id);
     public void updateDisease(String name, String description, int cured, int id);
